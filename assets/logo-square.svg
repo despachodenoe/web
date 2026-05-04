@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#C9A84C;stop-opacity:1" />
+      <stop offset="35%" style="stop-color:#F0D080;stop-opacity:1" />
+      <stop offset="65%" style="stop-color:#E8C456;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#A87820;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="goldFill" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#F0D080" />
+      <stop offset="50%" style="stop-color:#C9A84C" />
+      <stop offset="100%" style="stop-color:#8B6914" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="500" height="500" fill="#0D0D0D"/>
+
+  <!-- Outer decorative border -->
+  <rect x="18" y="18" width="464" height="464" fill="none" stroke="url(#goldGrad)" stroke-width="1" opacity="0.4"/>
+  <rect x="24" y="24" width="452" height="452" fill="none" stroke="url(#goldGrad)" stroke-width="0.5" opacity="0.2"/>
+
+  <!-- Corner ornaments -->
+  <!-- Top-left -->
+  <g transform="translate(40,40)">
+    <line x1="0" y1="0" x2="30" y2="0" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <line x1="0" y1="0" x2="0" y2="30" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <polygon points="0,-5 5,0 0,5 -5,0" transform="translate(35,0)" fill="url(#goldGrad)" opacity="0.8"/>
+  </g>
+  <!-- Top-right -->
+  <g transform="translate(460,40)">
+    <line x1="0" y1="0" x2="-30" y2="0" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <line x1="0" y1="0" x2="0" y2="30" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <polygon points="0,-5 5,0 0,5 -5,0" transform="translate(-35,0)" fill="url(#goldGrad)" opacity="0.8"/>
+  </g>
+  <!-- Bottom-left -->
+  <g transform="translate(40,460)">
+    <line x1="0" y1="0" x2="30" y2="0" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <line x1="0" y1="0" x2="0" y2="-30" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <polygon points="0,-5 5,0 0,5 -5,0" transform="translate(35,0)" fill="url(#goldGrad)" opacity="0.8"/>
+  </g>
+  <!-- Bottom-right -->
+  <g transform="translate(460,460)">
+    <line x1="0" y1="0" x2="-30" y2="0" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <line x1="0" y1="0" x2="0" y2="-30" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <polygon points="0,-5 5,0 0,5 -5,0" transform="translate(-35,0)" fill="url(#goldGrad)" opacity="0.8"/>
+  </g>
+
+  <!-- Top ornament -->
+  <g transform="translate(250, 90)">
+    <rect x="-80" y="-0.75" width="68" height="1.5" fill="url(#goldGrad)" opacity="0.7"/>
+    <polygon points="0,-7 7,0 0,7 -7,0" fill="url(#goldGrad)"/>
+    <rect x="12" y="-0.75" width="68" height="1.5" fill="url(#goldGrad)" opacity="0.7"/>
+  </g>
+
+  <!-- Horizontal rule -->
+  <rect x="70" y="105" width="360" height="1" fill="url(#goldGrad)" opacity="0.5"/>
+  <rect x="70" y="108" width="360" height="0.5" fill="url(#goldGrad)" opacity="0.2"/>
+
+  <!-- DESPACHO -->
+  <text x="250" y="195"
+    font-family="'Playfair Display', 'Times New Roman', Georgia, serif"
+    font-size="42"
+    font-weight="400"
+    letter-spacing="10"
+    text-anchor="middle"
+    fill="url(#goldGrad)">DESPACHO</text>
+
+  <!-- DE -->
+  <text x="250" y="238"
+    font-family="'Cormorant Garamond', 'Times New Roman', Georgia, serif"
+    font-size="16"
+    font-weight="300"
+    letter-spacing="14"
+    text-anchor="middle"
+    fill="#C9A84C"
+    opacity="0.8">D E</text>
+
+  <!-- NOÉ - big and elegant -->
+  <text x="250" y="320"
+    font-family="'Playfair Display', 'Times New Roman', Georgia, serif"
+    font-size="80"
+    font-weight="400"
+    letter-spacing="8"
+    text-anchor="middle"
+    fill="url(#goldGrad)">NOÉ</text>
+
+  <!-- Center diamond divider -->
+  <g transform="translate(250, 348)">
+    <rect x="-70" y="-0.75" width="58" height="1.5" fill="url(#goldGrad)" opacity="0.6"/>
+    <polygon points="0,-5 5,0 0,5 -5,0" fill="url(#goldGrad)"/>
+    <rect x="12" y="-0.75" width="58" height="1.5" fill="url(#goldGrad)" opacity="0.6"/>
+  </g>
+
+  <!-- Tagline -->
+  <text x="250" y="378"
+    font-family="'Cormorant Garamond', 'Times New Roman', Georgia, serif"
+    font-size="10.5"
+    font-weight="300"
+    letter-spacing="4"
+    text-anchor="middle"
+    fill="#C9A84C"
+    opacity="0.75">OPINIONES · HISTORIAS · CONVERSACIONES</text>
+
+  <!-- Bottom rules -->
+  <rect x="70" y="398" width="360" height="0.5" fill="url(#goldGrad)" opacity="0.2"/>
+  <rect x="70" y="401" width="360" height="1" fill="url(#goldGrad)" opacity="0.5"/>
+
+  <!-- Bottom ornament -->
+  <g transform="translate(250, 416)">
+    <rect x="-80" y="-0.75" width="68" height="1.5" fill="url(#goldGrad)" opacity="0.7"/>
+    <polygon points="0,-7 7,0 0,7 -7,0" fill="url(#goldGrad)"/>
+    <rect x="12" y="-0.75" width="68" height="1.5" fill="url(#goldGrad)" opacity="0.7"/>
+  </g>
+</svg>
