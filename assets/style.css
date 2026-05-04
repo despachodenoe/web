@@ -2,7 +2,7 @@
    DESPACHO DE NOÉ — Art Déco Design System
    ================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap');
 
 /* ── Variables ─────────────────────────────────── */
 :root {
@@ -23,7 +23,7 @@
   --border-gold-strong: rgba(201,168,76,0.6);
 
   --font-display: 'Playfair Display', 'Times New Roman', Georgia, serif;
-  --font-body:    'Cormorant Garamond', 'Times New Roman', Georgia, serif;
+  --font-body:    'Montserrat', 'Times New Roman', Georgia, serif;
   --font-ui:      'Jost', 'Helvetica Neue', sans-serif;
 
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
