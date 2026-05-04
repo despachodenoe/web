@@ -1,0 +1,35 @@
+name: Build Blog Posts
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '_posts/**/*.md'
+      - '_templates/**'
+      - 'assets/**'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install markdown python-frontmatter jinja2
+
+      - name: Build HTML posts from Markdown
+        run: python _scripts/build.py
+
+      - name: Commit and push generated HTML
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "🤖 Build: generate HTML from Markdown posts"
+          file_pattern: "posts/*.html index.html"
