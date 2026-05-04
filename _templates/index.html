@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Despacho de Noé — Opiniones, Historias & Conversaciones</title>
+  <meta name="description" content="Un despacho donde hablar de todo lo que importa, con calma y una taza de café."/>
+  <meta property="og:title" content="Despacho de Noé"/>
+  <meta property="og:description" content="Opiniones, Recomendaciones, Historias y Conversaciones."/>
+  <link rel="icon" type="image/svg+xml" href="assets/logo-square.svg"/>
+  <link rel="stylesheet" href="assets/style.css"/>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo">
+        <span class="logo-main">Despacho de Noé</span>
+        <span class="logo-sub">Opiniones · Historias · Conversaciones</span>
+      </a>
+      <nav class="site-nav" id="main-nav">
+        <a href="index.html" class="active">Inicio</a>
+        <a href="sobre-noe.html">Sobre Noé</a>
+        <a href="contacto.html">Contacto</a>
+        <button class="nav-search-btn" id="search-toggle" aria-label="Buscar">
+          <svg viewBox="0 0 24 24"><path d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+        </button>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <div class="search-overlay" id="search-overlay">
+    <div class="search-overlay-inner">
+      <label>¿Qué estás buscando?</label>
+      <div class="search-input-wrap">
+        <input type="text" id="search-input" placeholder="Escribe aquí..." autocomplete="off"/>
+        <button class="search-close" id="search-close">✕</button>
+      </div>
+      <div id="search-results"></div>
+    </div>
+  </div>
+
+  <section class="site-hero">
+    <div class="hero-ornament-top">
+      <div class="deco-line" style="max-width:400px;margin:0 auto;">
+        <div style="flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,0.6))"></div>
+        <div class="deco-diamond"></div>
+        <div style="flex:1;height:1px;background:linear-gradient(270deg,transparent,rgba(201,168,76,0.6))"></div>
+      </div>
+    </div>
+    <h1 class="hero-title fade-up">Despacho<em>de Noé</em></h1>
+    <p class="hero-tagline fade-up fade-up-delay-2">Un lugar para pensar, opinar y conversar con calma</p>
+    <div style="max-width:400px;margin:32px auto 0;">
+      <div class="deco-line">
+        <div style="flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,0.4))"></div>
+        <div class="deco-diamond" style="width:5px;height:5px;"></div>
+        <div style="flex:1;height:1px;background:linear-gradient(270deg,transparent,rgba(201,168,76,0.4))"></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="page-wrapper">
+    <div class="category-filters fade-up fade-up-delay-3">
+      <button class="cat-filter active" data-cat="all">Todo</button>
+      <button class="cat-filter" data-cat="opiniones">Opiniones</button>
+      <button class="cat-filter" data-cat="recomendaciones">Recomendaciones</button>
+      <button class="cat-filter" data-cat="historias">Historias</button>
+      <button class="cat-filter" data-cat="conversaciones">Conversaciones</button>
+    </div>
+  </div>
+
+  <main class="page-wrapper" id="posts-container">
+
+    {% if featured %}
+    <article class="post-featured fade-up" data-cat="{{ featured.category }}">
+      <div class="post-visual">
+        <div class="post-visual-pattern"></div>
+        <span class="post-visual-cat">{{ featured.cat_label[:2] }}.</span>
+      </div>
+      <div class="post-content">
+        <span class="post-category">{{ featured.cat_label }}</span>
+        <h2 class="post-title">{{ featured.title }}</h2>
+        <p class="post-excerpt">{{ featured.excerpt }}</p>
+        <div class="post-meta">
+          <span>{{ featured.read_min }} min lectura</span>
+          <span>·</span>
+          <span>{{ featured.date }}</span>
+        </div>
+        <a href="{{ featured.url }}" class="post-read-more">Leer artículo</a>
+      </div>
+    </article>
+    {% endif %}
+
+    <div class="posts-grid" id="posts-grid">
+      {% for post in recent %}
+      <article class="post-card fade-up" data-cat="{{ post.category }}" style="animation-delay:{{ loop.index0 * 0.08 }}s">
+        <span class="post-category">{{ post.cat_label }}</span>
+        <h3 class="post-title">{{ post.title }}</h3>
+        <p class="post-excerpt">{{ post.excerpt }}</p>
+        <div class="post-meta">
+          <span>{{ post.read_min }} min</span>
+          <span>·</span>
+          <span>{{ post.date }}</span>
+        </div>
+        <a href="{{ post.url }}" class="post-read-more">Leer</a>
+      </article>
+      {% endfor %}
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-name">Despacho de Noé</div>
+        <div class="footer-tagline">Opiniones · Recomendaciones · Historias · Conversaciones</div>
+      </div>
+      <nav class="footer-nav">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="sobre-noe.html">Sobre Noé</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="footer-social">
+        <h4>Redes</h4>
+        <div class="footer-social-links">
+          <a href="https://instagram.com/" target="_blank" class="footer-social-link">Instagram</a>
+          <a href="https://linkedin.com/" target="_blank" class="footer-social-link">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Despacho de Noé · despachodenoe.es</p>
+      <p>Hecho con calma y café</p>
+    </div>
+  </footer>
+
+  <script>
+    const POSTS_DATA = {{ posts_json }};
+
+    const navToggle = document.getElementById('nav-toggle');
+    const mainNav   = document.getElementById('main-nav');
+    navToggle.addEventListener('click', () => mainNav.classList.toggle('open'));
+
+    const searchToggle  = document.getElementById('search-toggle');
+    const searchOverlay = document.getElementById('search-overlay');
+    const searchClose   = document.getElementById('search-close');
+    const searchInput   = document.getElementById('search-input');
+    const searchResults = document.getElementById('search-results');
+
+    searchToggle.addEventListener('click', () => { searchOverlay.classList.add('active'); setTimeout(() => searchInput.focus(), 100); });
+    searchClose.addEventListener('click',  () => searchOverlay.classList.remove('active'));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') searchOverlay.classList.remove('active'); });
+
+    searchInput.addEventListener('input', () => {
+      const q = searchInput.value.toLowerCase().trim();
+      searchResults.innerHTML = '';
+      if (q.length < 2) return;
+      const matches = POSTS_DATA.filter(p => p.title.toLowerCase().includes(q) || p.cat_label.toLowerCase().includes(q));
+      if (!matches.length) { searchResults.innerHTML = '<p style="color:rgba(201,168,76,0.4);font-family:var(--font-ui);font-size:10px;letter-spacing:3px;text-transform:uppercase;padding:16px 0">Sin resultados</p>'; return; }
+      matches.forEach(p => {
+        const div = document.createElement('div');
+        div.className = 'search-result-item';
+        div.innerHTML = `<div class="result-cat">${p.cat_label}</div><div class="result-title">${p.title}</div>`;
+        div.addEventListener('click', () => window.location.href = p.url);
+        searchResults.appendChild(div);
+      });
+    });
+
+    const catFilters = document.querySelectorAll('.cat-filter');
+    const postCards  = document.querySelectorAll('[data-cat]');
+    catFilters.forEach(btn => {
+      btn.addEventListener('click', () => {
+        catFilters.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const cat = btn.dataset.cat;
+        postCards.forEach(card => { card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none'; });
+      });
+    });
+  </script>
+</body>
+</html>
