@@ -4,16 +4,14 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Despacho de Noé — Opiniones, Historias & Conversaciones</title>
-  <meta name="description" content="Un despacho donde hablar de todo lo que importa, con calma y una taza de café. Opiniones, Recomendaciones, Historias y Conversaciones."/>
+  <meta name="description" content="Un despacho donde hablar de todo lo que importa, con calma y una taza de café."/>
   <meta property="og:title" content="Despacho de Noé"/>
-  <meta property="og:description" content="Un despacho donde hablar de todo lo que importa."/>
-  <meta property="og:image" content="assets/logo-square.svg"/>
+  <meta property="og:description" content="Opiniones, Recomendaciones, Historias y Conversaciones."/>
   <link rel="icon" type="image/svg+xml" href="assets/logo-square.svg"/>
   <link rel="stylesheet" href="assets/style.css"/>
 </head>
 <body>
 
-  <!-- HEADER -->
   <header class="site-header">
     <div class="header-inner">
       <a href="index.html" class="site-logo">
@@ -25,18 +23,13 @@
         <a href="sobre-noe.html">Sobre Noé</a>
         <a href="contacto.html">Contacto</a>
         <button class="nav-search-btn" id="search-toggle" aria-label="Buscar">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-          </svg>
+          <svg viewBox="0 0 24 24"><path d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
         </button>
       </nav>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Menú">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="nav-toggle" id="nav-toggle"><span></span><span></span><span></span></button>
     </div>
   </header>
 
-  <!-- SEARCH OVERLAY -->
   <div class="search-overlay" id="search-overlay">
     <div class="search-overlay-inner">
       <label>¿Qué estás buscando?</label>
@@ -48,7 +41,6 @@
     </div>
   </div>
 
-  <!-- HERO -->
   <section class="site-hero">
     <div class="hero-ornament-top">
       <div class="deco-line" style="max-width:400px;margin:0 auto;">
@@ -57,13 +49,8 @@
         <div style="flex:1;height:1px;background:linear-gradient(270deg,transparent,rgba(201,168,76,0.6))"></div>
       </div>
     </div>
-    <h1 class="hero-title fade-up">
-      Despacho
-      <em>de Noé</em>
-    </h1>
-    <p class="hero-tagline fade-up fade-up-delay-2">
-      Un lugar para pensar, opinar y conversar con calma
-    </p>
+    <h1 class="hero-title fade-up">Despacho<em>de Noé</em></h1>
+    <p class="hero-tagline fade-up fade-up-delay-2">Un lugar para pensar, opinar y conversar con calma</p>
     <div style="max-width:400px;margin:32px auto 0;">
       <div class="deco-line">
         <div style="flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,0.4))"></div>
@@ -73,7 +60,6 @@
     </div>
   </section>
 
-  <!-- CATEGORY FILTERS -->
   <div class="page-wrapper">
     <div class="category-filters fade-up fade-up-delay-3">
       <button class="cat-filter active" data-cat="all">Todo</button>
@@ -84,10 +70,9 @@
     </div>
   </div>
 
-  <!-- POSTS SECTION -->
   <main class="page-wrapper" id="posts-container">
 
-    <!-- Featured Post -->
+    
     <article class="post-featured fade-up" data-cat="opiniones">
       <div class="post-visual">
         <div class="post-visual-pattern"></div>
@@ -98,78 +83,21 @@
         <h2 class="post-title">El arte de tener una opinión sin convertirla en trinchera</h2>
         <p class="post-excerpt">Vivimos en tiempos donde opinar se confunde con declarar guerra. Hay algo que se pierde cuando el debate deja de ser un intercambio y se convierte en un partido de fútbol con camisetas.</p>
         <div class="post-meta">
-          <span>15 min lectura</span>
+          <span>2 min lectura</span>
           <span>·</span>
-          <span>Enero 2025</span>
+          <span>15 de enero, 2025</span>
         </div>
-        <a href="posts/ejemplo-opinion.html" class="post-read-more">Leer artículo</a>
+        <a href="posts/el-arte-de-tener-una-opinion.html" class="post-read-more">Leer artículo</a>
       </div>
     </article>
+    
 
-    <!-- Posts Grid -->
     <div class="posts-grid" id="posts-grid">
-
-      <article class="post-card fade-up fade-up-delay-1" data-cat="recomendaciones">
-        <span class="post-category">Recomendaciones</span>
-        <h3 class="post-title">El restaurante que nadie menciona pero todo el mundo debería conocer</h3>
-        <p class="post-excerpt">A veces los mejores sitios son los que sobreviven sin Instagram.</p>
-        <div class="post-meta"><span>6 min</span><span>·</span><span>Ene 2025</span></div>
-        <a href="#" class="post-read-more">Leer</a>
-      </article>
-
-      <article class="post-card fade-up fade-up-delay-2" data-cat="historias">
-        <span class="post-category">Historias</span>
-        <h3 class="post-title">Crónica de un lunes que se pareció demasiado a un lunes</h3>
-        <p class="post-excerpt">Hay días que no piden permiso. Este es el relato de uno de ellos.</p>
-        <div class="post-meta"><span>8 min</span><span>·</span><span>Ene 2025</span></div>
-        <a href="#" class="post-read-more">Leer</a>
-      </article>
-
-      <article class="post-card fade-up fade-up-delay-3" data-cat="conversaciones">
-        <span class="post-category">Conversaciones</span>
-        <h3 class="post-title">Hablé con alguien que lleva treinta años haciendo lo mismo y feliz</h3>
-        <p class="post-excerpt">En un mundo obsesionado con el cambio, la constancia también es una elección valiente.</p>
-        <div class="post-meta"><span>11 min</span><span>·</span><span>Dic 2024</span></div>
-        <a href="#" class="post-read-more">Leer</a>
-      </article>
-
-      <article class="post-card fade-up fade-up-delay-1" data-cat="opiniones">
-        <span class="post-category">Opiniones</span>
-        <h3 class="post-title">Sobre la nostalgia como excusa y la memoria como invención</h3>
-        <p class="post-excerpt">Recordamos lo que nos conviene. Y eso, a veces, tiene consecuencias.</p>
-        <div class="post-meta"><span>9 min</span><span>·</span><span>Dic 2024</span></div>
-        <a href="#" class="post-read-more">Leer</a>
-      </article>
-
-      <article class="post-card fade-up fade-up-delay-2" data-cat="historias">
-        <span class="post-category">Historias</span>
-        <h3 class="post-title">La tarde que el tren se paró y nadie miró el móvil</h3>
-        <p class="post-excerpt">Treinta minutos. Veinte personas. Cero pantallas. Algo pasó.</p>
-        <div class="post-meta"><span>5 min</span><span>·</span><span>Nov 2024</span></div>
-        <a href="#" class="post-read-more">Leer</a>
-      </article>
-
-      <article class="post-card fade-up fade-up-delay-3" data-cat="recomendaciones">
-        <span class="post-category">Recomendaciones</span>
-        <h3 class="post-title">Tres libros que no están en ninguna lista de los cien mejores</h3>
-        <p class="post-excerpt">Precisamente por eso merece la pena hablar de ellos.</p>
-        <div class="post-meta"><span>7 min</span><span>·</span><span>Nov 2024</span></div>
-        <a href="#" class="post-read-more">Leer</a>
-      </article>
-
-    </div>
-
-    <!-- Pagination -->
-    <div class="pagination">
-      <button class="page-btn active">1</button>
-      <button class="page-btn">2</button>
-      <button class="page-btn">3</button>
-      <button class="page-btn">→</button>
+      
     </div>
 
   </main>
 
-  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-brand">
@@ -199,67 +127,45 @@
   </footer>
 
   <script>
-    // ── Nav toggle (mobile) ──
+    const POSTS_DATA = [{"title": "El arte de tener una opini\u00f3n sin convertirla en trinchera", "category": "opiniones", "cat_label": "Opiniones", "date_raw": "2025-01-15", "date": "15 de enero, 2025", "excerpt": "Vivimos en tiempos donde opinar se confunde con declarar guerra. Hay algo que se pierde cuando el debate deja de ser un intercambio y se convierte en un partido de f\u00fatbol con camisetas.", "slug": "el-arte-de-tener-una-opinion", "author": "No\u00e9", "read_min": 2, "url": "posts/el-arte-de-tener-una-opinion.html"}];
+
     const navToggle = document.getElementById('nav-toggle');
-    const mainNav = document.getElementById('main-nav');
+    const mainNav   = document.getElementById('main-nav');
     navToggle.addEventListener('click', () => mainNav.classList.toggle('open'));
 
-    // ── Search overlay ──
-    const searchToggle = document.getElementById('search-toggle');
+    const searchToggle  = document.getElementById('search-toggle');
     const searchOverlay = document.getElementById('search-overlay');
-    const searchClose = document.getElementById('search-close');
-    const searchInput = document.getElementById('search-input');
+    const searchClose   = document.getElementById('search-close');
+    const searchInput   = document.getElementById('search-input');
     const searchResults = document.getElementById('search-results');
 
-    searchToggle.addEventListener('click', () => {
-      searchOverlay.classList.add('active');
-      setTimeout(() => searchInput.focus(), 100);
-    });
-    searchClose.addEventListener('click', () => searchOverlay.classList.remove('active'));
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') searchOverlay.classList.remove('active');
-    });
-
-    // Simple search (works with the post data below — extend as posts grow)
-    const POSTS_DATA = [
-      { title: 'El arte de tener una opinión sin convertirla en trinchera', category: 'Opiniones', url: 'posts/ejemplo-opinion.html' },
-      { title: 'El restaurante que nadie menciona pero todo el mundo debería conocer', category: 'Recomendaciones', url: '#' },
-      { title: 'Crónica de un lunes que se pareció demasiado a un lunes', category: 'Historias', url: '#' },
-      { title: 'Hablé con alguien que lleva treinta años haciendo lo mismo y feliz', category: 'Conversaciones', url: '#' },
-      { title: 'Sobre la nostalgia como excusa y la memoria como invención', category: 'Opiniones', url: '#' },
-      { title: 'La tarde que el tren se paró y nadie miró el móvil', category: 'Historias', url: '#' },
-      { title: 'Tres libros que no están en ninguna lista de los cien mejores', category: 'Recomendaciones', url: '#' },
-    ];
+    searchToggle.addEventListener('click', () => { searchOverlay.classList.add('active'); setTimeout(() => searchInput.focus(), 100); });
+    searchClose.addEventListener('click',  () => searchOverlay.classList.remove('active'));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') searchOverlay.classList.remove('active'); });
 
     searchInput.addEventListener('input', () => {
       const q = searchInput.value.toLowerCase().trim();
       searchResults.innerHTML = '';
       if (q.length < 2) return;
-      const matches = POSTS_DATA.filter(p => p.title.toLowerCase().includes(q) || p.category.toLowerCase().includes(q));
-      if (!matches.length) {
-        searchResults.innerHTML = '<p style="color:rgba(201,168,76,0.4);font-family:var(--font-ui);font-size:10px;letter-spacing:3px;text-transform:uppercase;padding:16px 0">Sin resultados</p>';
-        return;
-      }
+      const matches = POSTS_DATA.filter(p => p.title.toLowerCase().includes(q) || p.cat_label.toLowerCase().includes(q));
+      if (!matches.length) { searchResults.innerHTML = '<p style="color:rgba(201,168,76,0.4);font-family:var(--font-ui);font-size:10px;letter-spacing:3px;text-transform:uppercase;padding:16px 0">Sin resultados</p>'; return; }
       matches.forEach(p => {
         const div = document.createElement('div');
         div.className = 'search-result-item';
-        div.innerHTML = `<div class="result-cat">${p.category}</div><div class="result-title">${p.title}</div>`;
+        div.innerHTML = `<div class="result-cat">${p.cat_label}</div><div class="result-title">${p.title}</div>`;
         div.addEventListener('click', () => window.location.href = p.url);
         searchResults.appendChild(div);
       });
     });
 
-    // ── Category filter ──
     const catFilters = document.querySelectorAll('.cat-filter');
-    const postCards = document.querySelectorAll('[data-cat]');
+    const postCards  = document.querySelectorAll('[data-cat]');
     catFilters.forEach(btn => {
       btn.addEventListener('click', () => {
         catFilters.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         const cat = btn.dataset.cat;
-        postCards.forEach(card => {
-          card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
-        });
+        postCards.forEach(card => { card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none'; });
       });
     });
   </script>
