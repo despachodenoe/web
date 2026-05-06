@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Despacho de Noé — Opiniones, Historias & Conversaciones</title>
   <meta name="description" content="Un despacho donde hablar de todo lo que importa, con calma y una taza de café."/>
+  <meta property="og:title" content="Despacho de Noé"/>
+  <meta property="og:description" content="Opiniones, Recomendaciones, Historias y Conversaciones."/>
   <link rel="icon" type="image/svg+xml" href="assets/logo-square.svg"/>
   <link rel="stylesheet" href="assets/style.css"/>
 </head>
@@ -13,7 +15,7 @@
   <header class="site-header">
     <div class="header-inner">
       <a href="index.html" class="site-logo">
-        <span class="logo-main">Despacho <span>de Noé</span></span>
+        <span class="logo-main">Despacho de Noé</span>
         <span class="logo-sub">Opiniones · Historias · Conversaciones</span>
       </a>
       <nav class="site-nav" id="main-nav">
@@ -21,19 +23,16 @@
         <a href="sobre-noe.html">Sobre Noé</a>
         <a href="contacto.html">Contacto</a>
         <button class="nav-search-btn" id="search-toggle" aria-label="Buscar">
-          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
         </button>
       </nav>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Menú">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="nav-toggle" id="nav-toggle"><span></span><span></span><span></span></button>
     </div>
   </header>
 
-  <!-- SEARCH -->
   <div class="search-overlay" id="search-overlay">
     <div class="search-overlay-inner">
-      <label>Buscar en el despacho</label>
+      <label>¿Qué estás buscando?</label>
       <div class="search-input-wrap">
         <input type="text" id="search-input" placeholder="Escribe aquí..." autocomplete="off"/>
         <button class="search-close" id="search-close">✕</button>
@@ -42,17 +41,27 @@
     </div>
   </div>
 
-  <!-- HERO -->
   <section class="site-hero">
-    <span class="hero-eyebrow">Despacho de Noé</span>
-    <h1 class="hero-title">Un lugar para pensar<br/><em>en voz alta</em></h1>
-    <div class="hero-rule"></div>
-    <p class="hero-tagline">Opiniones, recomendaciones, historias y conversaciones. Con calma y un café.</p>
+    <div class="hero-ornament-top">
+      <div class="deco-line" style="max-width:400px;margin:0 auto;">
+        <div style="flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,0.6))"></div>
+        <div class="deco-diamond"></div>
+        <div style="flex:1;height:1px;background:linear-gradient(270deg,transparent,rgba(201,168,76,0.6))"></div>
+      </div>
+    </div>
+    <h1 class="hero-title fade-up">Despacho<em>de Noé</em></h1>
+    <p class="hero-tagline fade-up fade-up-delay-2">Un lugar para pensar, opinar y conversar con calma</p>
+    <div style="max-width:400px;margin:32px auto 0;">
+      <div class="deco-line">
+        <div style="flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,0.4))"></div>
+        <div class="deco-diamond" style="width:5px;height:5px;"></div>
+        <div style="flex:1;height:1px;background:linear-gradient(270deg,transparent,rgba(201,168,76,0.4))"></div>
+      </div>
+    </div>
   </section>
 
-  <!-- FILTERS -->
   <div class="page-wrapper">
-    <div class="category-filters">
+    <div class="category-filters fade-up fade-up-delay-3">
       <button class="cat-filter active" data-cat="all">Todo</button>
       <button class="cat-filter" data-cat="opiniones">Opiniones</button>
       <button class="cat-filter" data-cat="recomendaciones">Recomendaciones</button>
@@ -61,9 +70,9 @@
     </div>
   </div>
 
-  <!-- POSTS -->
-  <main class="page-wrapper">
+  <main class="page-wrapper" id="posts-container">
 
+    
     <article class="post-featured fade-up" data-cat="opiniones">
       <div class="post-visual">
         <div class="post-visual-pattern"></div>
@@ -72,81 +81,19 @@
       <div class="post-content">
         <span class="post-category">Opiniones</span>
         <h2 class="post-title">El arte de tener una opinión sin convertirla en trinchera</h2>
-        <p class="post-excerpt">Vivimos en tiempos donde opinar se confunde con declarar guerra. Algo se pierde cuando el debate deja de ser un intercambio y se convierte en un partido con camisetas.</p>
-        <div class="post-meta"><span>15 min</span><span>·</span><span>Enero 2025</span></div>
-        <a href="posts/ejemplo-opinion.html" class="post-read-more">Leer artículo</a>
+        <p class="post-excerpt">Vivimos en tiempos donde opinar se confunde con declarar guerra. Hay algo que se pierde cuando el debate deja de ser un intercambio y se convierte en un partido de fútbol con camisetas.</p>
+        <div class="post-meta">
+          <span>2 min lectura</span>
+          <span>·</span>
+          <span>15 de enero, 2025</span>
+        </div>
+        <a href="posts/el-arte-de-tener-una-opinion.html" class="post-read-more">Leer artículo</a>
       </div>
     </article>
+    
 
     <div class="posts-grid" id="posts-grid">
-
-      <article class="post-card fade-up fade-up-delay-1" data-cat="recomendaciones">
-        <div class="post-card-body">
-          <span class="post-category">Recomendaciones</span>
-          <h3 class="post-title">El restaurante que nadie menciona pero todo el mundo debería conocer</h3>
-          <p class="post-excerpt">A veces los mejores sitios sobreviven sin Instagram.</p>
-          <div class="post-meta"><span>6 min</span><span>·</span><span>Ene 2025</span></div>
-          <a href="#" class="post-read-more">Leer</a>
-        </div>
-      </article>
-
-      <article class="post-card fade-up fade-up-delay-2" data-cat="historias">
-        <div class="post-card-body">
-          <span class="post-category">Historias</span>
-          <h3 class="post-title">Crónica de un lunes que se pareció demasiado a un lunes</h3>
-          <p class="post-excerpt">Hay días que no piden permiso. Este es el relato de uno de ellos.</p>
-          <div class="post-meta"><span>8 min</span><span>·</span><span>Ene 2025</span></div>
-          <a href="#" class="post-read-more">Leer</a>
-        </div>
-      </article>
-
-      <article class="post-card fade-up fade-up-delay-3" data-cat="conversaciones">
-        <div class="post-card-body">
-          <span class="post-category">Conversaciones</span>
-          <h3 class="post-title">Hablé con alguien que lleva treinta años haciendo lo mismo y feliz</h3>
-          <p class="post-excerpt">En un mundo obsesionado con el cambio, la constancia también es valentía.</p>
-          <div class="post-meta"><span>11 min</span><span>·</span><span>Dic 2024</span></div>
-          <a href="#" class="post-read-more">Leer</a>
-        </div>
-      </article>
-
-      <article class="post-card fade-up fade-up-delay-1" data-cat="opiniones">
-        <div class="post-card-body">
-          <span class="post-category">Opiniones</span>
-          <h3 class="post-title">Sobre la nostalgia como excusa y la memoria como invención</h3>
-          <p class="post-excerpt">Recordamos lo que nos conviene. Y eso, a veces, tiene consecuencias.</p>
-          <div class="post-meta"><span>9 min</span><span>·</span><span>Dic 2024</span></div>
-          <a href="#" class="post-read-more">Leer</a>
-        </div>
-      </article>
-
-      <article class="post-card fade-up fade-up-delay-2" data-cat="historias">
-        <div class="post-card-body">
-          <span class="post-category">Historias</span>
-          <h3 class="post-title">La tarde que el tren se paró y nadie miró el móvil</h3>
-          <p class="post-excerpt">Treinta minutos. Veinte personas. Cero pantallas. Algo pasó.</p>
-          <div class="post-meta"><span>5 min</span><span>·</span><span>Nov 2024</span></div>
-          <a href="#" class="post-read-more">Leer</a>
-        </div>
-      </article>
-
-      <article class="post-card fade-up fade-up-delay-3" data-cat="recomendaciones">
-        <div class="post-card-body">
-          <span class="post-category">Recomendaciones</span>
-          <h3 class="post-title">Tres libros que no están en ninguna lista de los cien mejores</h3>
-          <p class="post-excerpt">Precisamente por eso merece la pena hablar de ellos.</p>
-          <div class="post-meta"><span>7 min</span><span>·</span><span>Nov 2024</span></div>
-          <a href="#" class="post-read-more">Leer</a>
-        </div>
-      </article>
-
-    </div>
-
-    <div class="pagination">
-      <button class="page-btn active">1</button>
-      <button class="page-btn">2</button>
-      <button class="page-btn">3</button>
-      <button class="page-btn">→</button>
+      
     </div>
 
   </main>
@@ -154,8 +101,8 @@
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-brand">
-        <div class="footer-name">Despacho <span>de Noé</span></div>
-        <div class="footer-tagline">Opiniones · Recomendaciones<br/>Historias · Conversaciones</div>
+        <div class="footer-name">Despacho de Noé</div>
+        <div class="footer-tagline">Opiniones · Recomendaciones · Historias · Conversaciones</div>
       </div>
       <nav class="footer-nav">
         <h4>Navegación</h4>
@@ -166,7 +113,7 @@
         </ul>
       </nav>
       <div class="footer-social">
-        <h4>Sígueme</h4>
+        <h4>Redes</h4>
         <div class="footer-social-links">
           <a href="https://instagram.com/" target="_blank" class="footer-social-link">Instagram</a>
           <a href="https://linkedin.com/" target="_blank" class="footer-social-link">LinkedIn</a>
@@ -180,6 +127,8 @@
   </footer>
 
   <script>
+    const POSTS_DATA = [{"title": "El arte de tener una opini\u00f3n sin convertirla en trinchera", "category": "opiniones", "cat_label": "Opiniones", "date_raw": "2025-01-15", "date": "15 de enero, 2025", "excerpt": "Vivimos en tiempos donde opinar se confunde con declarar guerra. Hay algo que se pierde cuando el debate deja de ser un intercambio y se convierte en un partido de f\u00fatbol con camisetas.", "slug": "el-arte-de-tener-una-opinion", "author": "No\u00e9", "read_min": 2, "url": "posts/el-arte-de-tener-una-opinion.html"}];
+
     const navToggle = document.getElementById('nav-toggle');
     const mainNav   = document.getElementById('main-nav');
     navToggle.addEventListener('click', () => mainNav.classList.toggle('open'));
@@ -194,25 +143,12 @@
     searchClose.addEventListener('click',  () => searchOverlay.classList.remove('active'));
     document.addEventListener('keydown', e => { if (e.key === 'Escape') searchOverlay.classList.remove('active'); });
 
-    const POSTS_DATA = [
-      { title: 'El arte de tener una opinión sin convertirla en trinchera', cat_label: 'Opiniones', url: 'posts/ejemplo-opinion.html' },
-      { title: 'El restaurante que nadie menciona pero todo el mundo debería conocer', cat_label: 'Recomendaciones', url: '#' },
-      { title: 'Crónica de un lunes que se pareció demasiado a un lunes', cat_label: 'Historias', url: '#' },
-      { title: 'Hablé con alguien que lleva treinta años haciendo lo mismo y feliz', cat_label: 'Conversaciones', url: '#' },
-      { title: 'Sobre la nostalgia como excusa y la memoria como invención', cat_label: 'Opiniones', url: '#' },
-      { title: 'La tarde que el tren se paró y nadie miró el móvil', cat_label: 'Historias', url: '#' },
-      { title: 'Tres libros que no están en ninguna lista de los cien mejores', cat_label: 'Recomendaciones', url: '#' },
-    ];
-
     searchInput.addEventListener('input', () => {
       const q = searchInput.value.toLowerCase().trim();
       searchResults.innerHTML = '';
       if (q.length < 2) return;
       const matches = POSTS_DATA.filter(p => p.title.toLowerCase().includes(q) || p.cat_label.toLowerCase().includes(q));
-      if (!matches.length) {
-        searchResults.innerHTML = '<p style="color:rgba(255,255,255,0.3);font-family:var(--font-ui);font-size:10px;letter-spacing:3px;text-transform:uppercase;padding:20px 0">Sin resultados</p>';
-        return;
-      }
+      if (!matches.length) { searchResults.innerHTML = '<p style="color:rgba(201,168,76,0.4);font-family:var(--font-ui);font-size:10px;letter-spacing:3px;text-transform:uppercase;padding:16px 0">Sin resultados</p>'; return; }
       matches.forEach(p => {
         const div = document.createElement('div');
         div.className = 'search-result-item';
