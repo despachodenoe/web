@@ -1,4 +1,4 @@
-usr/bin/env python3
+#!usr/bin/env python3
 """
 Despacho de Noé — Build Script
 Converts .md posts in _posts/ to HTML in posts/.
