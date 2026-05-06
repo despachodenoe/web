@@ -1,9 +1,9 @@
 ---
-title: Despacho de Noé, un lugar para conversar
+title: Despacho de Noé, bienvenidos 
 category: opiniones
 date: 2025-01-15
-excerpt: En 
-slug: el-arte-de-tener-una-opinion
+excerpt: Sean todos bienvenidos a mi despacho, donde comenzamos una nueva carrer
+slug: despacho-noe-bienvenidoz
 author: Noé
 draft: false
 ---
