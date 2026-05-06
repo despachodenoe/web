@@ -1,8 +1,8 @@
 ---
-title: El arte de tener una opinión sin convertirla en trinchera
+title: Despacho de Noé, un lugar para conversar
 category: opiniones
 date: 2025-01-15
-excerpt: Vivimos en tiempos donde opinar se confunde con declarar guerra. Hay algo que se pierde cuando el debate deja de ser un intercambio y se convierte en un partido de fútbol con camisetas.
+excerpt: En 
 slug: el-arte-de-tener-una-opinion
 author: Noé
 draft: false
@@ -29,3 +29,4 @@ El tercero, y quizás el más difícil, es la curiosidad genuina por la posició
 ## Una nota final sobre el café
 
 Este despacho es, entre otras cosas, un intento de practicar ese tipo de opinión. Con calma, con café, con la ventana abierta por si hay que dejar entrar aire fresco.
+con
