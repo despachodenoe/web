@@ -5,17 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Despacho de Noé — Opiniones, Historias & Conversaciones</title>
   <meta name="description" content="Un despacho donde hablar de todo lo que importa, con calma y una taza de café."/>
-  <meta property="og:title" content="Despacho de Noé"/>
-  <meta property="og:description" content="Opiniones, Recomendaciones, Historias y Conversaciones."/>
   <link rel="icon" type="image/svg+xml" href="../assets/logo-square.svg"/>
   <link rel="stylesheet" href="../assets/style.css"/>
 </head>
 <body>
-
   <header class="site-header">
     <div class="header-inner">
       <a href="../index.html" class="site-logo">
-        <span class="logo-main">Despacho de Noé</span>
+        <span class="logo-main">Despacho <span>de Noé</span></span>
         <span class="logo-sub">Opiniones · Historias · Conversaciones</span>
       </a>
       <nav class="site-nav" id="main-nav">
@@ -23,7 +20,7 @@
         <a href="../sobre-noe.html">Sobre Noé</a>
         <a href="../contacto.html">Contacto</a>
         <button class="nav-search-btn" id="search-toggle" aria-label="Buscar">
-          <svg viewBox="0 0 24 24"><path d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
         </button>
       </nav>
       <button class="nav-toggle" id="nav-toggle"><span></span><span></span><span></span></button>
@@ -32,7 +29,7 @@
 
   <div class="search-overlay" id="search-overlay">
     <div class="search-overlay-inner">
-      <label>¿Qué estás buscando?</label>
+      <label>Buscar en el despacho</label>
       <div class="search-input-wrap">
         <input type="text" id="search-input" placeholder="Escribe aquí..." autocomplete="off"/>
         <button class="search-close" id="search-close">✕</button>
@@ -42,26 +39,14 @@
   </div>
 
   <section class="site-hero">
-    <div class="hero-ornament-top">
-      <div class="deco-line" style="max-width:400px;margin:0 auto;">
-        <div style="flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,0.6))"></div>
-        <div class="deco-diamond"></div>
-        <div style="flex:1;height:1px;background:linear-gradient(270deg,transparent,rgba(201,168,76,0.6))"></div>
-      </div>
-    </div>
-    <h1 class="hero-title fade-up">Despacho<em>de Noé</em></h1>
-    <p class="hero-tagline fade-up fade-up-delay-2">Un lugar para pensar, opinar y conversar con calma</p>
-    <div style="max-width:400px;margin:32px auto 0;">
-      <div class="deco-line">
-        <div style="flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,0.4))"></div>
-        <div class="deco-diamond" style="width:5px;height:5px;"></div>
-        <div style="flex:1;height:1px;background:linear-gradient(270deg,transparent,rgba(201,168,76,0.4))"></div>
-      </div>
-    </div>
+    <span class="hero-eyebrow">Despacho de Noé</span>
+    <h1 class="hero-title">Un lugar para pensar<br/><em>en voz alta</em></h1>
+    <div class="hero-rule"></div>
+    <p class="hero-tagline">Opiniones, recomendaciones, historias y conversaciones. Con calma y un café.</p>
   </section>
 
   <div class="page-wrapper">
-    <div class="category-filters fade-up fade-up-delay-3">
+    <div class="category-filters">
       <button class="cat-filter active" data-cat="all">Todo</button>
       <button class="cat-filter" data-cat="opiniones">Opiniones</button>
       <button class="cat-filter" data-cat="recomendaciones">Recomendaciones</button>
@@ -70,39 +55,19 @@
     </div>
   </div>
 
-  <main class="page-wrapper" id="posts-container">
-
-    
-    <article class="post-featured fade-up" data-cat="opiniones">
-      <div class="post-visual">
-        <div class="post-visual-pattern"></div>
-        <span class="post-visual-cat">Op.</span>
-      </div>
-      <div class="post-content">
-        <span class="post-category">Opiniones</span>
-        <h2 class="post-title">Despacho de Noé, bienvenidos</h2>
-        <p class="post-excerpt">Sean todos bienvenidos a mi despacho, donde comentaremos de todo.</p>
-        <div class="post-meta">
-          <span>2 min lectura</span>
-          <span>·</span>
-          <span>15 de enero, 2025</span>
-        </div>
-        <a href="posts/despacho-noe-bienvenido.html" class="post-read-more">Leer artículo</a>
-      </div>
-    </article>
+  <main class="page-wrapper">
     
 
     <div class="posts-grid" id="posts-grid">
       
     </div>
-
   </main>
 
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-brand">
-        <div class="footer-name">Despacho de Noé</div>
-        <div class="footer-tagline">Opiniones · Recomendaciones · Historias · Conversaciones</div>
+        <div class="footer-name">Despacho <span>de Noé</span></div>
+        <div class="footer-tagline">Opiniones · Recomendaciones<br/>Historias · Conversaciones</div>
       </div>
       <nav class="footer-nav">
         <h4>Navegación</h4>
@@ -113,7 +78,7 @@
         </ul>
       </nav>
       <div class="footer-social">
-        <h4>Redes</h4>
+        <h4>Sígueme</h4>
         <div class="footer-social-links">
           <a href="https://instagram.com/despachodenoe" target="_blank" class="footer-social-link">Instagram</a>
           <a href="https://linkedin.com/noegmedia" target="_blank" class="footer-social-link">LinkedIn</a>
@@ -127,28 +92,24 @@
   </footer>
 
   <script>
-    const POSTS_DATA = [{"title": "Despacho de Noé, bienvenidos", "category": "opiniones", "cat_label": "Opiniones", "date_raw": "2025-01-15", "date": "15 de enero, 2025", "excerpt": "Sean todos bienvenidos a mi despacho, donde comentaremos de todo.", "slug": "despacho-noe-bienvenido", "author": "Noé", "read_min": 2, "tags": [], "image": "", "url": "posts/despacho-noe-bienvenido.html"}];
-
+    const POSTS_DATA = ;
     const navToggle = document.getElementById('nav-toggle');
     const mainNav   = document.getElementById('main-nav');
     navToggle.addEventListener('click', () => mainNav.classList.toggle('open'));
-
     const searchToggle  = document.getElementById('search-toggle');
     const searchOverlay = document.getElementById('search-overlay');
     const searchClose   = document.getElementById('search-close');
     const searchInput   = document.getElementById('search-input');
     const searchResults = document.getElementById('search-results');
-
     searchToggle.addEventListener('click', () => { searchOverlay.classList.add('active'); setTimeout(() => searchInput.focus(), 100); });
     searchClose.addEventListener('click',  () => searchOverlay.classList.remove('active'));
     document.addEventListener('keydown', e => { if (e.key === 'Escape') searchOverlay.classList.remove('active'); });
-
     searchInput.addEventListener('input', () => {
       const q = searchInput.value.toLowerCase().trim();
       searchResults.innerHTML = '';
       if (q.length < 2) return;
       const matches = POSTS_DATA.filter(p => p.title.toLowerCase().includes(q) || p.cat_label.toLowerCase().includes(q));
-      if (!matches.length) { searchResults.innerHTML = '<p style="color:rgba(201,168,76,0.4);font-family:var(--font-ui);font-size:10px;letter-spacing:3px;text-transform:uppercase;padding:16px 0">Sin resultados</p>'; return; }
+      if (!matches.length) { searchResults.innerHTML = '<p style="color:rgba(255,255,255,0.3);font-family:var(--font-ui);font-size:10px;letter-spacing:3px;text-transform:uppercase;padding:20px 0">Sin resultados</p>'; return; }
       matches.forEach(p => {
         const div = document.createElement('div');
         div.className = 'search-result-item';
@@ -157,7 +118,6 @@
         searchResults.appendChild(div);
       });
     });
-
     const catFilters = document.querySelectorAll('.cat-filter');
     const postCards  = document.querySelectorAll('[data-cat]');
     catFilters.forEach(btn => {
