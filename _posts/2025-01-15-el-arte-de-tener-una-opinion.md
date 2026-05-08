@@ -2,8 +2,8 @@
 title: Despacho de Noé, bienvenidos 
 category: opiniones
 date: 2025-01-15
-excerpt: Sean todos bienvenidos a mi despacho, donde comenzamos una nueva carrer
-slug: despacho-noe-bienvenidoz
+excerpt: Sean todos bienvenidos a mi despacho, donde comentaremos de todo.
+slug: despacho-noe-bienvenido
 author: Noé
 draft: false
 ---
