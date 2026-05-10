@@ -28,5 +28,4 @@ El tercero, y quizás el más difícil, es la curiosidad genuina por la posició
 
 ## Una nota final sobre el café
 
-Este despacho es, entre otras cosas, un intento de practicar ese tipo de opinión. Con calma, con café, con la ventana abierta por si hay que dejar entrar aire fresco.
-con
+Este despacho es, entre otras cosas, un intento de practicar ese tipo de opinión. Con calma, con café, con la ventana abierta por si hay que dejar entrar aire frescquito
