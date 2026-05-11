@@ -1,10 +1,6 @@
 #!usr/bin/env python3
 """
 Despacho de Noé — Build Script
-Converts .md posts in _posts/ to HTML in posts/.
-Filenames come straight from the .md filename (no date prefix required).
-All metadata is read from the frontmatter.
-Supports: title, category, date, excerpt, author, slug, image, draft, tags.
 """
 
 import os
@@ -48,18 +44,12 @@ def format_date(date_val) -> str:
         if isinstance(date_val, str):
             d = datetime.strptime(date_val.strip(), "%Y-%m-%d")
         else:
-            d = date_val  # already a date/datetime object
+            d = date_val
         return f"{d.day} de {MONTHS_ES[d.month]}, {d.year}"
     except Exception:
         return str(date_val)
 
 def slug_from_path(path: Path) -> str:
-    """
-    Use the filename as slug directly.
-    Strips optional YYYY-MM-DD- prefix if present for backward compat.
-    despacho-para-siempre.md  → despacho-para-siempre
-    2025-01-15-mi-articulo.md → mi-articulo  (legacy support)
-    """
     name = path.stem
     legacy = re.match(r'^\d{4}-\d{2}-\d{2}-(.+)$', name)
     if legacy:
@@ -67,10 +57,8 @@ def slug_from_path(path: Path) -> str:
     return name
 
 def find_related(current: dict, all_posts: list, n: int = 3) -> list:
-    """Return up to n posts in the same category, excluding current."""
     same_cat = [p for p in all_posts
                 if p["slug"] != current["slug"] and p["category"] == current["category"]]
-    # Fill remaining slots with other posts if needed
     others = [p for p in all_posts
               if p["slug"] != current["slug"] and p["category"] != current["category"]]
     pool = (same_cat + others)[:n]
@@ -88,7 +76,6 @@ def build_posts():
         post = frontmatter.load(md_file)
         meta = post.metadata
 
-        # ── Read all frontmatter fields ──
         title    = meta.get("title", md_file.stem.replace("-", " ").title())
         category = str(meta.get("category", "opiniones")).lower().strip()
         date_raw = meta.get("date", datetime.today().strftime("%Y-%m-%d"))
@@ -96,9 +83,8 @@ def build_posts():
         author   = meta.get("author", "Noé")
         draft    = meta.get("draft", False)
         tags     = meta.get("tags", [])
-        image    = meta.get("image", "")   # e.g. "assets/images/mi-foto.jpg" or a URL
+        image    = meta.get("image", "")
 
-        # slug: prefer explicit, else derive from filename
         slug = meta.get("slug") or slug_from_path(md_file)
 
         if draft:
@@ -122,17 +108,15 @@ def build_posts():
             "author":    author,
             "read_min":  read_min,
             "tags":      tags,
-            "image":     image,           # passed to template
+            "image":     image,
             "url":       f"posts/{slug}.html",
             "body":      body_html,
         }
 
         all_posts.append(post_data)
 
-    # Sort by date descending
     all_posts.sort(key=lambda p: p["date_raw"], reverse=True)
 
-    # Render each post (needs related posts, so do after collecting all)
     for post_data in all_posts:
         related = find_related(post_data, all_posts, n=3)
         output_path = OUTPUT_DIR / f"{post_data['slug']}.html"
@@ -140,8 +124,6 @@ def build_posts():
         output_path.write_text(rendered, encoding="utf-8")
         print(f"  ✓  {output_path}  [{post_data['cat_label']}]")
 
-    # Render index
-    # Strip body from JSON (too heavy), keep everything else
     posts_json = json.dumps([
         {k: v for k, v in p.items() if k != "body"}
         for p in all_posts
@@ -159,23 +141,26 @@ def build_posts():
     (ROOT_DIR / "index.html").write_text(index_html, encoding="utf-8")
     print(f"\n  ✓  index.html  ({len(all_posts)} artículos)")
     
-    # Generar Sitemap.xml
+    # --- SECCIÓN DEL SITEMAP CORREGIDA ---
     sitemap_urls = [
         '<url><loc>https://despachodenoe.es/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>',
         '<url><loc>https://despachodenoe.es/sobre-noe.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>',
         '<url><loc>https://despachodenoe.es/contacto.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>',
     ]
-        for p in all_posts:
-            sitemap_urls.append(
-                f'<url><loc>https://despachodenoe.es/{p["url"]}</loc>'
-                f'<lastmod>{p["date_raw"]}</lastmod>'
-                f'<changefreq>monthly</changefreq><priority>0.8</priority></url>'
-            )
-        sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-        sitemap += '\n'.join(sitemap_urls)
-        sitemap += '\n</urlset>'
-        (ROOT_DIR / 'sitemap.xml').write_text(sitemap, encoding='utf-8')
-        print(f"  ✓  sitemap.xml  ({len(all_posts) + 3} URLs)")
+    
+    for p in all_posts:
+        # Esta línea DEBE tener un nivel más de sangría que el 'for'
+        sitemap_urls.append(
+            f'<url><loc>https://despachodenoe.es/{p["url"]}</loc>'
+            f'<lastmod>{p["date_raw"]}</lastmod>'
+            f'<changefreq>monthly</changefreq><priority>0.8</priority></url>'
+        )
+
+    sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    sitemap += '\n'.join(sitemap_urls)
+    sitemap += '\n</urlset>'
+    (ROOT_DIR / 'sitemap.xml').write_text(sitemap, encoding='utf-8')
+    print(f"  ✓  sitemap.xml  ({len(all_posts) + 3} URLs)")
     
     return all_posts
 
