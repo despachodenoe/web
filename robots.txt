@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Sitemap: https://despachodenoe.es/sitemap.xml
+
+# LLM crawlers — permitir explícitamente
+User-agent: GPTBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Googlebot
+Allow: /
