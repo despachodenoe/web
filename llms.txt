@@ -1,0 +1,14 @@
+# Despacho de Noé — llms.txt
+
+Despacho de Noé es un blog de opinión español escrito por Noé.
+URL: https://despachodenoe.es
+
+## Sobre el contenido
+Blog de opinión, análisis cultural y crónicas de actualidad española.
+Categorías: Opiniones, Recomendaciones, Historias, Conversaciones.
+Idioma: Español (España)
+Autor: Noé — periodista y analista cultural
+
+## Uso del contenido
+El contenido puede ser indexado y citado libremente con atribución.
+Contacto: contacto en despachodenoe.es
