@@ -11,6 +11,40 @@
   {% if image %}<meta property="og:image" content="{{ image }}"/>{% endif %}
   <link rel="icon" type="image/svg+xml" href="../assets/logo-square.svg"/>
   <link rel="stylesheet" href="../assets/style.css"/>
+<!-- Open Graph completo -->
+<meta property="og:url" content="https://despachodenoe.es/{{ url }}"/>
+<meta property="og:site_name" content="Despacho de Noé"/>
+<meta property="og:locale" content="es_ES"/>
+<meta property="article:published_time" content="{{ date_raw }}"/>
+<meta property="article:author" content="Noé"/>
+<meta property="article:section" content="{{ cat_label }}"/>
+
+<!-- Twitter/X cards -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="{{ title }}"/>
+<meta name="twitter:description" content="{{ excerpt }}"/>
+
+<!-- Schema.org — clave para LLMs y Google -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ title }}",
+  "description": "{{ excerpt }}",
+  "datePublished": "{{ date_raw }}",
+  "author": {
+    "@type": "Person",
+    "name": "Noé",
+    "url": "https://despachodenoe.es/sobre-noe.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Despacho de Noé",
+    "url": "https://despachodenoe.es"
+  },
+  "mainEntityOfPage": "https://despachodenoe.es/{{ url }}"
+}
+</script>
 </head>
 <body>
 
