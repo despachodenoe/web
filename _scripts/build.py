@@ -1,6 +1,10 @@
-#!usr/bin/env python3
+#!/usr/bin/env python3
 """
 Despacho de Noé — Build Script
+Converts .md posts in _posts/ to HTML in posts/.
+Filenames come straight from the .md filename (no date prefix required).
+All metadata is read from the frontmatter.
+Supports: title, category, date, excerpt, author, slug, image, draft, tags.
 """
 
 import os
@@ -61,8 +65,7 @@ def find_related(current: dict, all_posts: list, n: int = 3) -> list:
                 if p["slug"] != current["slug"] and p["category"] == current["category"]]
     others = [p for p in all_posts
               if p["slug"] != current["slug"] and p["category"] != current["category"]]
-    pool = (same_cat + others)[:n]
-    return pool
+    return (same_cat + others)[:n]
 
 def build_posts():
     OUTPUT_DIR.mkdir(exist_ok=True)
@@ -84,8 +87,7 @@ def build_posts():
         draft    = meta.get("draft", False)
         tags     = meta.get("tags", [])
         image    = meta.get("image", "")
-
-        slug = meta.get("slug") or slug_from_path(md_file)
+        slug     = meta.get("slug") or slug_from_path(md_file)
 
         if draft:
             print(f"  ↷  Skipping draft: {md_file.name}")
@@ -115,8 +117,10 @@ def build_posts():
 
         all_posts.append(post_data)
 
+    # Ordenar por fecha descendente
     all_posts.sort(key=lambda p: p["date_raw"], reverse=True)
 
+    # Renderizar cada post
     for post_data in all_posts:
         related = find_related(post_data, all_posts, n=3)
         output_path = OUTPUT_DIR / f"{post_data['slug']}.html"
@@ -124,6 +128,7 @@ def build_posts():
         output_path.write_text(rendered, encoding="utf-8")
         print(f"  ✓  {output_path}  [{post_data['cat_label']}]")
 
+    # Renderizar index
     posts_json = json.dumps([
         {k: v for k, v in p.items() if k != "body"}
         for p in all_posts
@@ -140,28 +145,25 @@ def build_posts():
     )
     (ROOT_DIR / "index.html").write_text(index_html, encoding="utf-8")
     print(f"\n  ✓  index.html  ({len(all_posts)} artículos)")
-    
-    # --- SECCIÓN DEL SITEMAP CORREGIDA ---
+
+    # Generar sitemap.xml automáticamente
     sitemap_urls = [
         '<url><loc>https://despachodenoe.es/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>',
         '<url><loc>https://despachodenoe.es/sobre-noe.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>',
         '<url><loc>https://despachodenoe.es/contacto.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>',
     ]
-    
     for p in all_posts:
-        # Esta línea DEBE tener un nivel más de sangría que el 'for'
         sitemap_urls.append(
             f'<url><loc>https://despachodenoe.es/{p["url"]}</loc>'
             f'<lastmod>{p["date_raw"]}</lastmod>'
             f'<changefreq>monthly</changefreq><priority>0.8</priority></url>'
         )
-
     sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     sitemap += '\n'.join(sitemap_urls)
     sitemap += '\n</urlset>'
     (ROOT_DIR / 'sitemap.xml').write_text(sitemap, encoding='utf-8')
     print(f"  ✓  sitemap.xml  ({len(all_posts) + 3} URLs)")
-    
+
     return all_posts
 
 if __name__ == "__main__":
