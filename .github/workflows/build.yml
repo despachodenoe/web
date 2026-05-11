@@ -32,4 +32,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "🤖 Build: generate HTML from Markdown posts"
-          file_pattern: "posts/*.html index.html"
+          file_pattern: "posts/*.html index.html sitemap.xml"
