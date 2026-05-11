@@ -177,7 +177,7 @@ def build_posts():
     (ROOT_DIR / 'sitemap.xml').write_text(sitemap, encoding='utf-8')
     print(f"  ✓  sitemap.xml  ({len(all_posts) + 3} URLs)")
     
-    return all_posts
+return all_posts
 
 if __name__ == "__main__":
     print("\n🏛  Despacho de Noé — Building blog...\n")
