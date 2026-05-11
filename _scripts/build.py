@@ -160,7 +160,7 @@ def build_posts():
     print(f"\n  ✓  index.html  ({len(all_posts)} artículos)")
     
     # Generar Sitemap.xml
-        sitemap_urls = [
+    sitemap_urls = [
         '<url><loc>https://despachodenoe.es/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>',
         '<url><loc>https://despachodenoe.es/sobre-noe.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>',
         '<url><loc>https://despachodenoe.es/contacto.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>',
