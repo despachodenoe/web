@@ -166,18 +166,18 @@ def build_posts():
     '<url><loc>https://despachodenoe.es/contacto.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>',
 ]
     for p in all_posts:
-    sitemap_urls.append(
-        f'<url><loc>https://despachodenoe.es/{p["url"]}</loc>'
-        f'<lastmod>{p["date_raw"]}</lastmod>'
-        f'<changefreq>monthly</changefreq><priority>0.8</priority></url>'
-    )
+        sitemap_urls.append(
+            f'<url><loc>https://despachodenoe.es/{p["url"]}</loc>'
+            f'<lastmod>{p["date_raw"]}</lastmod>'
+            f'<changefreq>monthly</changefreq><priority>0.8</priority></url>'
+        )
     sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     sitemap += '\n'.join(sitemap_urls)
     sitemap += '\n</urlset>'
     (ROOT_DIR / 'sitemap.xml').write_text(sitemap, encoding='utf-8')
     print(f"  ✓  sitemap.xml  ({len(all_posts) + 3} URLs)")
     
-return all_posts
+    return all_posts
 
 if __name__ == "__main__":
     print("\n🏛  Despacho de Noé — Building blog...\n")
