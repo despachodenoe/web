@@ -8,24 +8,21 @@ author: Noé
 draft: false
 ---
 
-Vivimos en tiempos donde opinar se confunde con declarar guerra. Hay algo que se pierde cuando el debate deja de ser un intercambio y se convierte en un partido de fútbol con camisetas. Y la camiseta, claro, es lo primero que te ponen cuando dices algo en público.
+Durante la época prepandemica en España, cuando los pequeños negocios todavía estaban en lo más alto y el teletrabajo era algo muy ocasional, las televisiones locales buscaban a los jóvenes para grabar noticias o reportajes. 
 
-No es nuevo. La tribuna siempre ha generado sus facciones. Pero había algo en el espacio físico que frenaba los excesos: la presencia del otro, la incomodidad de verle la cara, el tener que seguir viviendo en el mismo barrio después de la discusión. Lo digital eliminó esas fricciones y, con ellas, parte de la humanidad del desacuerdo.
+Y uno de esos chicos fui yo, donde grabé y edité, en un magacín de verano, hice mis prácticas de fp en la tele municipal de Marbella, rodé un videoclip y, en uno de ellos, trabajé como camara, realizador y editor: en M95. 
 
-> Tener una opinión es un acto de valentía. Defenderla a cualquier precio es otra cosa: es miedo disfrazado de convicción.
+En esta televisión decana en Marbella, liderada en aquel entonces por el Sr. Pernía, nos reunía en su despacho para hablar de todo, con la confianza de no sólo un jefe, sino de un amigo. 
 
-## El problema no es opinar. Es trincherar.
+## La magia de un despacho, el nacimiento de los sueños.
 
-La trinchera como modo de vida intelectual tiene una característica definitoria: desde dentro, todo lo que viene de afuera es amenaza. No hay información nueva que pueda entrar sin pasar por el filtro de si confirma o contradice lo que ya pensamos.
+Y en ese entonces, descubrí la magia que envuelve un despacho. Un lugar donde nacen los sueños de las personas, donde terminan y comienzan otros muy diferentes, donde se debate y se piensa de todo. Y donde tranquilamente se puede charlar como si el tiempo se parase. 
 
-## ¿Qué sería opinar bien?
+## El comienzo del Despacho de Noé
 
-No tengo una respuesta completa, pero sí algunos elementos que me parecen necesarios. El primero es la disposición a perder. Una opinión que no puedes perder no es una opinión: es una identidad.
+Por ello, os presento este blog, el Despacho de Noé, un lugar donde puedo charlar con vosotros, y compartir ideas, opiniones, con la esencia de un entorno corporativo, pero con la total confianza de un amigo. 
 
-El segundo es la diferencia entre estar convencido y tener razón. Puedo estar absolutamente convencido de algo y estar equivocado.
+Espero, honestamente, que disfruten del contenido de este blog, que puedan compartirlo con las personas que puedan estar interesados, y como no, tienen la puerta de mi despacho abierta para que puedan hablar y comentar lo que quieran. 
 
-El tercero, y quizás el más difícil, es la curiosidad genuina por la posición contraria. No para rebatirla mejor, sino para entenderla.
+> Bienvenidos al Despacho de Noé, el primer despacho donde no te van a recriminar ni despedir. 
 
-## Una nota final sobre el café
-
-Este despacho es, entre otras cosas, un intento de practicar ese tipo de opinión. Con calma, con café, con la ventana abierta por si hay que dejar entrar aire frescquito
