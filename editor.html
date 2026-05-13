@@ -174,6 +174,62 @@
     }
     .btn-ghost:hover { background: rgba(255,255,255,0.12); color: var(--white); }
     .btn-danger { background: var(--danger); color: var(--white); }
+    .btn-delete { background: rgba(192,57,43,0.12); color: #c0392b; border: 1px solid rgba(192,57,43,0.3); font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; border-radius: var(--radius); padding: 7px 14px; cursor: pointer; transition: var(--transition); }
+    .btn-delete:hover { background: var(--danger); color: white; border-color: var(--danger); }
+
+    /* ── Image upload ── */
+    .img-upload-area {
+      border: 2px dashed var(--border-strong);
+      border-radius: var(--radius);
+      padding: 24px 16px; cursor: pointer;
+      text-align: center; transition: var(--transition);
+      background: var(--off-white); position: relative;
+      min-height: 100px; display: flex;
+      align-items: center; justify-content: center;
+    }
+    .img-upload-area:hover, .img-upload-area.drag-over {
+      border-color: var(--green);
+      background: var(--green-light);
+    }
+    .img-upload-icon { font-size: 28px; margin-bottom: 8px; }
+    .img-upload-text {
+      font-size: 12px; color: var(--text-muted); line-height: 1.6;
+    }
+    .img-upload-text span { font-size: 10px; color: var(--text-faint); }
+    .img-preview-thumb {
+      max-height: 140px; max-width: 100%;
+      border-radius: var(--radius); object-fit: cover;
+      box-shadow: var(--shadow);
+    }
+    .img-upload-progress {
+      position: absolute; inset: 0;
+      background: rgba(248,250,249,0.95);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 12px;
+      border-radius: var(--radius);
+    }
+    .img-progress-bar {
+      width: 80%; height: 4px;
+      background: var(--border); border-radius: 2px; overflow: hidden;
+      position: relative;
+    }
+    .img-progress-bar::after {
+      content: ''; position: absolute;
+      left: 0; top: 0; height: 100%;
+      background: var(--green);
+      animation: progressAnim 1.5s ease infinite;
+      width: 40%;
+    }
+    @keyframes progressAnim {
+      0%   { left: -40%; }
+      100% { left: 120%; }
+    }
+    #img-progress-label {
+      font-size: 10px; font-weight: 600;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--green);
+    }
+
     .btn-danger:hover { background: #a93226; }
     .btn-outline {
       background: none; color: var(--green);
@@ -589,6 +645,7 @@
     <div class="topbar-title" id="topbar-title">Selecciona o crea un artículo</div>
     <div class="topbar-actions">
       <button class="btn btn-sm btn-ghost" onclick="newArticle()" title="Nuevo artículo">+ Nuevo</button>
+      <button class="btn btn-sm btn-delete" onclick="confirmDelete()" id="delete-btn" style="display:none;">🗑 Eliminar</button>
       <button class="btn btn-sm btn-primary" onclick="saveArticle()" id="save-btn" disabled>
         <div class="spinner" id="save-spinner"></div>
         <span id="save-label">Publicar</span>
@@ -631,7 +688,7 @@
           <button class="tab-btn" onclick="switchTab('editor')" id="tab-editor">Escribir</button>
           <button class="tab-btn" onclick="switchTab('preview')" id="tab-preview">Vista previa</button>
           <div style="flex:1"></div>
-          <button class="btn btn-sm btn-ghost" onclick="confirmDelete()" style="margin:6px 0;font-size:9px;letter-spacing:1px;color:rgba(255,255,255,0.4);">Eliminar</button>
+          
         </div>
 
         <!-- META TAB -->
@@ -667,8 +724,24 @@
               <input class="fm-input" type="text" id="fm-slug" placeholder="mi-articulo" oninput="onFieldChange()"/>
             </div>
             <div class="fm-field full">
-              <label class="fm-label">Imagen destacada (ruta o URL)</label>
-              <input class="fm-input" type="text" id="fm-image" placeholder="assets/images/foto.jpg" oninput="onFieldChange()"/>
+              <label class="fm-label">Imagen destacada</label>
+              <div class="img-upload-area" id="img-upload-area" onclick="document.getElementById('img-file-input').click()" ondragover="event.preventDefault();this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')" ondrop="handleImgDrop(event)">
+                <div class="img-upload-placeholder" id="img-placeholder">
+                  <div class="img-upload-icon">📷</div>
+                  <div class="img-upload-text">Pulsa para elegir imagen<br/><span>o arrastra aquí</span></div>
+                </div>
+                <img id="img-preview" class="img-preview-thumb" style="display:none"/>
+                <div class="img-upload-progress" id="img-progress" style="display:none">
+                  <div class="img-progress-bar" id="img-progress-bar"></div>
+                  <span id="img-progress-label">Subiendo...</span>
+                </div>
+              </div>
+              <input type="file" id="img-file-input" accept="image/*" style="display:none" onchange="handleImgSelect(event)"/>
+              <div style="display:flex;gap:8px;align-items:center;margin-top:8px;">
+                <input class="fm-input" type="text" id="fm-image" placeholder="assets/images/foto.jpg" oninput="onFieldChange()" style="flex:1;margin-top:0;font-size:11px;"/>
+                <button class="btn btn-sm btn-outline" onclick="clearImage()" type="button" style="flex-shrink:0;white-space:nowrap;">✕ Quitar</button>
+              </div>
+              <div style="font-size:10px;color:var(--text-faint);margin-top:4px;">La imagen se sube a assets/images/ en tu repositorio</div>
             </div>
             <div class="fm-field full">
               <label class="fm-label">Estado</label>
@@ -891,6 +964,7 @@ async function openArticle(path, name) {
     parseAndLoad(content);
     showEditor();
     document.getElementById('topbar-title').textContent = name.replace('.md', '');
+    document.getElementById('delete-btn').style.display = '';
     renderArticleList(document.getElementById('search-input').value);
     STATE.unsaved = false;
     updateSaveStatus();
@@ -943,6 +1017,7 @@ function newArticle() {
   showEditor();
   switchTab('meta');
   document.getElementById('topbar-title').textContent = 'Nuevo artículo';
+  document.getElementById('delete-btn').style.display = 'none';
   enableSave();
   updateWordCount();
   if (window.innerWidth <= 640) toggleSidebar();
@@ -1018,6 +1093,7 @@ async function deleteArticle() {
     document.getElementById('editor-content').style.display = 'none';
     document.getElementById('welcome-screen').style.display = 'flex';
     document.getElementById('topbar-title').textContent = 'Selecciona o crea un artículo';
+    document.getElementById('delete-btn').style.display = 'none';
     document.getElementById('save-btn').disabled = true;
     await loadArticles();
   } catch (e) {
@@ -1171,6 +1247,105 @@ function showToast(msg, type = 'success') {
   container.appendChild(toast);
   setTimeout(() => toast.remove(), 3500);
 }
+
+
+// ── Image upload ────────────────────────────────────
+function handleImgSelect(event) {
+  const file = event.target.files[0];
+  if (file) processImageFile(file);
+}
+
+function handleImgDrop(event) {
+  event.preventDefault();
+  document.getElementById('img-upload-area').classList.remove('drag-over');
+  const file = event.dataTransfer.files[0];
+  if (file && file.type.startsWith('image/')) processImageFile(file);
+}
+
+function processImageFile(file) {
+  // Show local preview immediately
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    showImgPreview(e.target.result);
+    // Upload to GitHub
+    uploadImageToGitHub(file, e.target.result);
+  };
+  reader.readAsDataURL(file);
+}
+
+function showImgPreview(dataUrl) {
+  const preview = document.getElementById('img-preview');
+  const placeholder = document.getElementById('img-placeholder');
+  preview.src = dataUrl;
+  preview.style.display = 'block';
+  placeholder.style.display = 'none';
+}
+
+async function uploadImageToGitHub(file, dataUrl) {
+  if (!STATE.token) { showToast('Conéctate a GitHub primero', 'error'); return; }
+
+  // Show progress
+  const progress = document.getElementById('img-progress');
+  const label = document.getElementById('img-progress-label');
+  progress.style.display = 'flex';
+  label.textContent = 'Subiendo imagen...';
+
+  // Sanitize filename
+  const ext = file.name.split('.').pop().toLowerCase();
+  const base = file.name.replace(/\.[^.]+$/, '')
+    .toLowerCase().normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9-]/g, '-')
+    .replace(/-+/g, '-').substring(0, 60);
+  const timestamp = Date.now();
+  const filename = `${base}-${timestamp}.${ext}`;
+  const path = `assets/images/${filename}`;
+
+  // Convert to base64 (strip data URL prefix)
+  const base64 = dataUrl.split(',')[1];
+
+  try {
+    // Check if file already exists (get SHA if so)
+    let sha = null;
+    try {
+      const existing = await ghFetch(`/contents/${path}`);
+      sha = existing.sha;
+    } catch { /* new file, no SHA needed */ }
+
+    const body = {
+      message: `🖼️ Imagen: ${filename}`,
+      content: base64,
+      branch: STATE.branch,
+    };
+    if (sha) body.sha = sha;
+
+    await ghFetch(`/contents/${path}`, {
+      method: 'PUT',
+      body: JSON.stringify(body),
+    });
+
+    // Update the image field
+    document.getElementById('fm-image').value = path;
+    onFieldChange();
+    label.textContent = '¡Subida!';
+    setTimeout(() => { progress.style.display = 'none'; }, 1200);
+    showToast('Imagen subida a ' + path);
+  } catch (e) {
+    progress.style.display = 'none';
+    showToast('Error subiendo imagen: ' + e.message, 'error');
+  }
+}
+
+function clearImage() {
+  document.getElementById('fm-image').value = '';
+  document.getElementById('img-preview').style.display = 'none';
+  document.getElementById('img-placeholder').style.display = 'flex';
+  document.getElementById('img-file-input').value = '';
+  onFieldChange();
+}
+
+// Restore image preview when loading an article
+const _origParseAndLoad = parseAndLoad;
 
 // ── Keyboard shortcuts ──────────────────────────────
 document.addEventListener('keydown', e => {
