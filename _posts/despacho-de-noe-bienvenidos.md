@@ -2,7 +2,7 @@
 title: Despacho de Noé, bienvenidos
 category: opiniones
 date: 2025-01-15
-excerpt: Sean todos bienvenidos a mi despacho, donde comentaremos de todo.
+excerpt: El comienzo del Despacho de Noé es ahora, en el lugar donde nos comenzaremos a conocer y a disfrutar de un nuevo proyecto.
 author: Noé
 slug: despacho-de-noe-bienvenidos
 image: assets/images/1000079873-1778632857527.webp
