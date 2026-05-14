@@ -5,7 +5,7 @@ date: 2026-05-14
 excerpt: Si buscamos una fecha exacta, la juventud y la vida como tal, nos cambió en 2010. Es el año donde todo fue un antes y un después.
 author: Noé
 slug: la-juventud-cambio-en-2010
-image: assets/images/1000080172-1778748304452.png
+image: assets/images/1000080268-1778802992902.png
 draft: true
 ---
 
@@ -30,4 +30,4 @@ Por otro lado, una simple **pelota**, un coche **teledirigido** y un **juego de 
 
 Los adolescentes leían revistas y publicaciones de **cotilleo**, temáticos de coches y motos, y empezaban a ayudar en los negocios familiares, o donde podían, para tener sus primeros **ahorros** para poder comprarse su primera **motillo de 49cc**.
 
-Que de hecho, esas motillos de 2 tiempos, debian siempre de estar haciendo kabalas, para mezclar el bote de **motul o aceite de 
+Que de hecho, esas motillos de 2 tiempos, debian siempre de estar haciendo kabalas, para mezclar el bote de **motul o aceite de
