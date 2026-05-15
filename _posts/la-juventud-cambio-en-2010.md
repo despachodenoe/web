@@ -6,7 +6,7 @@ excerpt: Si buscamos una fecha exacta, la juventud y la vida como tal, nos cambi
 author: Noé
 slug: la-juventud-cambio-en-2010
 image: assets/images/1000080268-1778802992902.png
-draft: true
+draft: false
 ---
 
 Hace cuestión de 15 años, la vida ha **evolucionado** hasta tal punto que prácticamente toda la humanidad ha cambiado su **día a dia**. 
