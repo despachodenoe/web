@@ -84,9 +84,13 @@
     {% if featured %}
     <article class="post-featured fade-up" data-cat="{{ featured.category }}">
       <div class="post-visual">
+         {% if featured.image %}
+        <img src="{{ featured.image }}" alt="{{ featured.title }}" class="post-featured-img"/>
+        {% else %}
         <div class="post-visual-pattern"></div>
         <span class="post-visual-cat">{{ featured.cat_label[:2] }}.</span>
-      </div>
+        {% endif %}
+  </div>
       <div class="post-content">
         <span class="post-category">{{ featured.cat_label }}</span>
         <h2 class="post-title">{{ featured.title }}</h2>
@@ -104,16 +108,27 @@
     <div class="posts-grid" id="posts-grid">
       {% for post in recent %}
       <article class="post-card fade-up" data-cat="{{ post.category }}" style="animation-delay:{{ loop.index0 * 0.08 }}s">
-        <span class="post-category">{{ post.cat_label }}</span>
-        <h3 class="post-title">{{ post.title }}</h3>
-        <p class="post-excerpt">{{ post.excerpt }}</p>
-        <div class="post-meta">
-          <span>{{ post.read_min }} min</span>
-          <span>·</span>
-          <span>{{ post.date }}</span>
-        </div>
-        <a href="{{ post.url }}" class="post-read-more">Leer</a>
-      </article>
+  {% if post.image %}
+  <div class="post-card-image-wrap">
+    <img src="{{ post.image }}" alt="{{ post.title }}" class="post-card-image"/>
+  </div>
+  {% else %}
+  <div class="post-card-no-image">
+    <span class="post-card-cat-initial">{{ post.cat_label[:1] }}</span>
+  </div>
+  {% endif %}
+  <div class="post-card-body">
+    <span class="post-category">{{ post.cat_label }}</span>
+    <h3 class="post-title">{{ post.title }}</h3>
+    <p class="post-excerpt">{{ post.excerpt }}</p>
+    <div class="post-meta">
+      <span>{{ post.read_min }} min</span>
+      <span>·</span>
+      <span>{{ post.date }}</span>
+    </div>
+    <a href="{{ post.url }}" class="post-read-more">Leer</a>
+  </div>
+</article>
       {% endfor %}
     </div>
 

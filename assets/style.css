@@ -385,12 +385,13 @@ a { color: inherit; text-decoration: none; }
   overflow: hidden;
   min-height: 340px;
 }
-.post-featured .post-visual img {
+.post-featured-img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  z-index: 1;
 }
 /* Geometric pattern for no-image state */
 .post-visual-pattern {
@@ -484,6 +485,24 @@ a { color: inherit; text-decoration: none; }
   overflow: hidden;
   height: 180px;
   flex-shrink: 0;
+}
+.post-card-no-image {
+  height: 120px;
+  background: var(--green-light);
+  border-bottom: 1px solid var(--green-mid);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.post-card-cat-initial {
+  font-family: var(--font-display);
+  font-size: 56px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--green);
+  opacity: 0.2;
+  user-select: none;
 }
 
 .post-card-body { padding: 26px 28px 30px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
