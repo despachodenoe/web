@@ -1,1 +1,21 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg width="100%" height="100%" viewBox="0 0 600 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;"><path d="M300,65.269l234.731,234.731l-234.731,234.731l-234.731,-234.731l234.731,-234.731Z" style="fill:none;stroke:#007a4d;stroke-width:8.33px;"/><rect x="183.028" y="184.993" width="232.372" height="232.372" style="fill:none;stroke:#007a4d;stroke-width:8.33px;"/><circle cx="300" cy="242.792" r="26.54" style="fill:none;stroke:#007a4d;stroke-width:8.33px;"/><g transform="matrix(0,1,-1,0,798.302443,-1349.88369)"><g transform="matrix(172.789327,0,0,172.789327,1756.36053,561.480271)"></g><text x="1621.959px" y="561.48px" style="font-family:'CenturySchoolbook', 'Century Schoolbook', serif;font-size:172.789px;fill:#007a4d;">D</text></g><rect x="290.564" y="270.511" width="18.873" height="30.668" style="fill:#007a4d;stroke:#007a4d;stroke-width:6.25px;"/></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 600 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <g transform="matrix(0.782438,0,0,0.782438,65.268676,65.268676)">
+        <path d="M300,0L600,300L300,600L0,300L300,0Z" style="fill:none;stroke:rgb(0,122,77);stroke-width:10.65px;"/>
+    </g>
+    <g transform="matrix(0.986644,0,0,0.986644,20.871286,-12.852679)">
+        <rect x="164.351" y="200.524" width="235.518" height="235.518" style="fill:none;stroke:rgb(0,122,77);stroke-width:8.45px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,2.162516,-6.290957)">
+        <circle cx="297.837" cy="249.083" r="26.54" style="fill:none;stroke:rgb(0,122,77);stroke-width:8.33px;"/>
+    </g>
+    <g transform="matrix(0,2.314629,-2.314629,0,1074.093067,-275.790624)">
+        <g transform="matrix(74.650971,0,0,74.650971,294.763164,361.730013)">
+        </g>
+        <text x="236.697px" y="361.73px" style="font-family:'CenturySchoolbook', 'Century Schoolbook', serif;font-size:74.651px;fill:rgb(0,122,77);">D</text>
+    </g>
+    <g transform="matrix(1,0,0,1,-1.965924,1.179554)">
+        <rect x="292.529" y="269.332" width="18.873" height="30.668" style="fill:rgb(0,122,77);stroke:rgb(0,122,77);stroke-width:6.25px;"/>
+    </g>
+</svg>
