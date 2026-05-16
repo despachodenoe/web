@@ -169,5 +169,155 @@
     const mainNav   = document.getElementById('main-nav');
     navToggle.addEventListener('click', () => mainNav.classList.toggle('open'));
   </script>
+  <div id="cookie-banner" style="display:none;">
+  <div id="cookie-inner">
+    <div id="cookie-text">
+      <strong>Usamos cookies</strong>
+      Utilizamos Google Analytics para entender cómo se usa el blog. No recogemos datos personales identificables.
+      <a href="privacidad.html#cookies">Más información</a>
+    </div>
+    <div id="cookie-actions">
+      <button id="cookie-reject">Solo esenciales</button>
+      <button id="cookie-accept">Aceptar todo</button>
+    </div>
+  </div>
+</div>
+ 
+<style>
+  #cookie-banner {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 9999;
+    background: var(--ink);
+    border-top: 2px solid var(--green);
+    box-shadow: 0 -4px 32px rgba(0,0,0,0.25);
+    animation: slideUp 0.4s cubic-bezier(0.4,0,0.2,1) both;
+  }
+  @keyframes slideUp {
+    from { transform: translateY(100%); }
+    to   { transform: translateY(0); }
+  }
+  #cookie-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  #cookie-text {
+    flex: 1;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.6;
+    min-width: 200px;
+  }
+  #cookie-text strong {
+    color: white;
+    font-weight: 600;
+    margin-right: 6px;
+  }
+  #cookie-text a {
+    color: var(--green);
+    text-decoration: none;
+    margin-left: 4px;
+  }
+  #cookie-actions {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+  #cookie-reject {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.6);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 10px 18px;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: 0.2s ease;
+  }
+  #cookie-reject:hover {
+    border-color: rgba(255,255,255,0.5);
+    color: white;
+  }
+  #cookie-accept {
+    background: var(--green);
+    border: none;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: 0.2s ease;
+  }
+  #cookie-accept:hover { background: #005C3A; }
+  @media (max-width: 640px) {
+    #cookie-inner { padding: 16px 20px; gap: 14px; }
+    #cookie-text { font-size: 11px; }
+    #cookie-actions { width: 100%; }
+    #cookie-reject, #cookie-accept { flex: 1; text-align: center; }
+  }
+</style>
+ 
+<script>
+(function() {
+  const CONSENT_KEY = 'dn_cookie_consent';
+ 
+  function loadGA() {
+    if (!GA_ID || GA_ID === 'G-XXXXXXXXXX') return;
+    const s = document.createElement('script');
+    s.async = true;
+    s.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', GA_ID, { anonymize_ip: true });
+  }
+ 
+  function showBanner() {
+    document.getElementById('cookie-banner').style.display = 'block';
+  }
+ 
+  function hideBanner() {
+    document.getElementById('cookie-banner').style.display = 'none';
+  }
+ 
+  const consent = localStorage.getItem(CONSENT_KEY);
+ 
+  if (consent === 'accepted') {
+    loadGA();
+  } else if (consent === 'rejected') {
+    // no GA, no banner
+  } else {
+    // Show banner after short delay
+    setTimeout(showBanner, 800);
+  }
+ 
+  document.getElementById('cookie-accept').addEventListener('click', function() {
+    localStorage.setItem(CONSENT_KEY, 'accepted');
+    hideBanner();
+    loadGA();
+  });
+ 
+  document.getElementById('cookie-reject').addEventListener('click', function() {
+    localStorage.setItem(CONSENT_KEY, 'rejected');
+    hideBanner();
+  });
+})();
+</script>
 </body>
 </html>
