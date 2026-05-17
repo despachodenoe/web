@@ -11,7 +11,7 @@ draft: true
 
 Las elecciones de **2026** en **Andalucía** están siendo marcadas por una campaña muy **curiosa** y en especial **surrealista** para la situación que estamos viviendo. 
 
-## Campaña política sin sentido para los grandes, reivindicaciones por los pequeños. 
+## Campaña política sin sentido por los grandes, reivindicaciones por los pequeños. 
 
 Si por algo destacan esta campaña del 2026, es por el **poco sentido** que a simple vista se está viviendo por parte de los **principales partidos**. 
 
