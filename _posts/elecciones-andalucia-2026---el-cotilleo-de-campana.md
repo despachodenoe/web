@@ -5,6 +5,7 @@ date: 2026-05-17
 excerpt: Las elecciones de Andalucía no han estado exentas de polemica por los mensajes y campañas que han predominado.
 author: Noé
 slug: elecciones-andalucia-2026---el-cotilleo-de-campana
+image: assets/images/1000080374-1779022531335.png
 draft: true
 ---
 
@@ -26,4 +27,4 @@ El lider popular ha querido mostrar una canción optimista y que siendo de estil
 
 Muy pocos comprenden el motivo por el que el **PSOE**, ha decidido elegir como candidata a **Maria Jesús Montero**, quien es Ministra de Hacienda y Vicepresidenta del Gobierno.
 
-Popularmente, está siendo **muy criticada** por la opinión pública y acogida **con decepción** por un sector de su propio partido. 
+Popularmente, está siendo **muy criticada** por la opinión pública y acogida **con decepción** por un sector de su propio partido.
