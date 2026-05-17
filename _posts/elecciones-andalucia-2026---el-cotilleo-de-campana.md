@@ -1,7 +1,7 @@
 ---
 title: Elecciones Andalucia 2026 - El cotilleo de campaña
 category: opiniones
-date: 2026-05-16
+date: 2026-05-17
 excerpt: Las elecciones de Andalucía no han estado exentas de polemica por los mensajes y campañas que han predominado.
 author: Noé
 slug: elecciones-andalucia-2026---el-cotilleo-de-campana
