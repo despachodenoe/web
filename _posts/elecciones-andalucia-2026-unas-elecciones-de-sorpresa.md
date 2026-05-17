@@ -55,4 +55,8 @@ Es cierto que la candidatura de **Jose Ignacio** de **Adelante Andalucía** es u
 
 Un sentimiento **andalucista** que respondió a la canción de **Moreno Bonilla**, con el candidato andalucista entonando el **himno de Andalucía** cuando era un **niño pequeño**.
 
-## Unos resultados
+## Unos resultados consecuentes a la campaña. 
+
+Tras analizar la **campaña** y ver los **resultados de las elecciones** , es evidente que Andalucia **quiere un cambio**.
+
+La **pérdida** de la mayoría absoluta del **PP** hacen un nuevo entorno para los populares, quien tienen que **pactar** con **VOX**
