@@ -66,8 +66,11 @@
   </header>
 
   {% if image %}
+<div class="article-hero-wrap">
+  <div class="article-hero-bg" style="background-image:url('../{{ image }}')"></div>
   <img src="../{{ image }}" alt="{{ title }}" class="article-hero-image"/>
-  {% endif %}
+</div>
+{% endif %}
 
   <div class="article-header fade-up">
     <span class="article-category">{{ cat_label }}</span>
