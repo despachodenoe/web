@@ -55,3 +55,5 @@ Es cierto que la candidatura de **Jose Ignacio** de **Adelante Andalucía** es u
 
 Un sentimiento **andalucista** que respondió a la canción de **Moreno Bonilla**, con el candidato andalucista entonando el **himno de Andalucía** cuando era un **niño pequeño**.
 
+## Unos resultados 
+
