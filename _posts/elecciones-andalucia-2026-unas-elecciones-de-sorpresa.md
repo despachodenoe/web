@@ -9,7 +9,9 @@ image: assets/images/1000080374-1779022531335.png
 draft: true
 ---
 
-Las elecciones de **2026** en **Andalucía** están siendo marcadas por una campaña muy **curiosa** y en especial **surrealista** para la situación que estamos viviendo. 
+Las elecciones de **2026** en **Andalucía** han sido por una campaña muy **curiosa** y en especial **surrealista** para la situación que estamos viviendo. 
+
+El resultado electoral ha sido fruto del **pasotismo de los grandes y de las reivindicaciones de los pequeños**
 
 ## Campaña política sin sentido por los grandes, reivindicaciones por los pequeños. 
 
@@ -49,14 +51,22 @@ Con ideas de apoyo a la educación, sanidad, economia, e incluso declarando que 
 
 Posiblemente sea una decisión **interesante** que en momentos puntuales, pudo **estresar** a los grandes partidos. 
 
-### Adelante Andalucía, el resquicio puro andalucista. 
+### Adelante Andalucía, el descendiente puro del sentimiento andalucista. 
 
 Es cierto que la candidatura de **Jose Ignacio** de **Adelante Andalucía** es un choque directo a las decisiones **criticas** que tomaron los populares. 
 
 Un sentimiento **andalucista** que respondió a la canción de **Moreno Bonilla**, con el candidato andalucista entonando el **himno de Andalucía** cuando era un **niño pequeño**.
 
+Además de haber hecho una campaña directa por **Andalucía**, como las **camisetas de José Ignacio** que dignifica a las **mujeres victimas del cribado de cancer**, además 
+
 ## Unos resultados consecuentes a la campaña. 
 
 Tras analizar la **campaña** y ver los **resultados de las elecciones** , es evidente que Andalucia **quiere un cambio**.
 
-La **pérdida** de la mayoría absoluta del **PP** hacen un nuevo entorno para los populares, quien tienen que **pactar** con **VOX**
+La **pérdida** de la mayoría absoluta del **PP** hacen un nuevo entorno para los populares, quien tienen que **pactar** con **VOX**, siendo una oportunidad que oro y que aprovechará, para inculcar su programa más completo, entre la ya famosa **prioridad nacional**.
+
+Por otro lado, **confirmo** lo anteriormente comentado: el PSOE debe buscar un nuevo candidato, ya que **Andalucía** ha **castigado** la propuesta socialista con un resultado **muy crítico**.
+
+También hay que poner en valor la propuesta de **Adelante Andalucía**, quien como nueva propuesta, ha pegado un verdadero **sorpasso** a la izquierda **más tradicional**, y realmente, los **400.000 andaluces** que les han votado, han **arrebatado la mayoría absoluta** a Moreno Bonilla.
+
+No obstante, **todos** y cada uno de los partidos, han **aumentado en número de votos** respectivamente, pero precisamente ese **aumento de participación** ha conseguido repartir el **número de escaños** bajo la ley D'Hont, llevando a este **plural resultado**.
