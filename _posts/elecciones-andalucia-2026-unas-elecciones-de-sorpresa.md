@@ -1,12 +1,12 @@
 ---
-title: Elecciones Andalucia 2026, Unas elecciones de sorpresa
+title: Elecciones Andalucia 2026, unas elecciones de sorpresa
 category: opiniones
 date: 2026-05-17
 excerpt: Las elecciones de Andalucía no han estado exentas de polemica por los mensajes y campañas que han predominado. Todo ello ha sorprendido a los resultados en las elecciones
 author: Noé
 slug: elecciones-andalucia-2026-unas-elecciones-de-sorpresa
 image: assets/images/1000080374-1779022531335.png
-draft: true
+draft: false
 ---
 
 Las elecciones de **2026** en **Andalucía** han sido por una campaña muy **curiosa** y en especial **surrealista** para la situación que estamos viviendo. 
