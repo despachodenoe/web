@@ -57,7 +57,7 @@ Es cierto que la candidatura de **Jose Ignacio** de **Adelante Andalucía** es u
 
 Un sentimiento **andalucista** que respondió a la canción de **Moreno Bonilla**, con el candidato andalucista entonando el **himno de Andalucía** cuando era un **niño pequeño**.
 
-Además de haber hecho una campaña directa por **Andalucía**, como las **camisetas de José Ignacio** que dignifica a las **mujeres victimas del cribado de cancer**, además 
+Además de haber hecho una campaña directa por **Andalucía**, como las **camisetas de José Ignacio** que dignifica a las **mujeres victimas del cribado de cancer**, además de tener un actitud muy crítica con los grandes partidos.
 
 ## Unos resultados consecuentes a la campaña. 
 
