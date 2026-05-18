@@ -65,8 +65,8 @@ Tras analizar la **campaña** y ver los **resultados de las elecciones** , es ev
 
 La **pérdida** de la mayoría absoluta del **PP** hacen un nuevo entorno para los populares, quien tienen que **pactar** con **VOX**, siendo una oportunidad que oro y que aprovechará, para inculcar su programa más completo, entre la ya famosa **prioridad nacional**.
 
-Por otro lado, **confirmo** lo anteriormente comentado: el PSOE debe buscar un nuevo candidato, ya que **Andalucía** ha **castigado** la propuesta socialista con un resultado **muy crítico**.
+Por otro lado, **confirmo** lo anteriormente comentado: el PSOE debe buscar un **nuevo candidato**, ya que **Andalucía** ha **castigado** la propuesta socialista con un resultado **muy crítico**.
 
 También hay que poner en valor la propuesta de **Adelante Andalucía**, quien como nueva propuesta, ha pegado un verdadero **sorpasso** a la izquierda **más tradicional**, y realmente, los **400.000 andaluces** que les han votado, han **arrebatado la mayoría absoluta** a Moreno Bonilla.
 
-No obstante, **todos** y cada uno de los partidos, han **aumentado en número de votos** respectivamente, pero precisamente ese **aumento de participación** ha conseguido repartir el **número de escaños** bajo la ley D'Hont, llevando a este **plural resultado**.
+No obstante, **todos** y cada uno de los partidos, han **aumentado en número de votos** respectivamente, a excepción de Por Andalucía, pero precisamente ese **aumento de participación** ha conseguido repartir el **número de escaños** bajo la ley D'Hont, llevando a este **plural resultado**, y al cambio en el **tablero político** andaluz. 
