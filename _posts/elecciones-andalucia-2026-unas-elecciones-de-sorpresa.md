@@ -39,9 +39,9 @@ Posiblemente el objetivo sea intentar **frenar la bajada de escaños** y buscar 
 
 ### VOX, y su prioridad nacional. 
 
-Si bien ha destacado el partido de **Abascal**, es su postura **centralizada**. Su base de **xenofobia** con la postura de **prioridad nacional**, es el argumento de VOX. 
+Si bien ha destacado el partido de **Abascal**, es su postura **centralizada**. Su base de **voto de indignación y seguridad** con la postura de **prioridad nacional**, es el argumento utilizado en la campaña de VOX.
 
-Con la prioridad nacional, buscan el **voto descontento** de los principales partidos, y buscar una opción donde critican las políticas del gobierno central. 
+Con la prioridad nacional, buscan el **voto descontento y de rabia** propiciado por los **hilos sueltos** de los principales partidos, y aprovechan para buscar una opción donde critican las políticas del gobierno central. 
 
 ### Por Andalucía, la revolución de la izquierda. 
 
