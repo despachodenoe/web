@@ -69,4 +69,14 @@ Por otro lado, **confirmo** lo anteriormente comentado: el PSOE debe buscar un *
 
 También hay que poner en valor la propuesta de **Adelante Andalucía**, quien como nueva propuesta, ha pegado un verdadero **sorpasso** a la izquierda **más tradicional**, y realmente, los **400.000 andaluces** que les han votado, han **arrebatado la mayoría absoluta** a Moreno Bonilla.
 
-No obstante, **todos** y cada uno de los partidos, han **aumentado en número de votos** respectivamente, a excepción de Por Andalucía, pero precisamente ese **aumento de participación** ha conseguido repartir el **número de escaños** bajo la ley D'Hont, llevando a este **plural resultado**, y al cambio en el **tablero político** andaluz. 
+No obstante, **todos** y cada uno de los partidos, han **aumentado en número de votos** respectivamente, a excepción de Por Andalucía, pero precisamente ese **aumento de participación** ha conseguido repartir el **número de escaños** bajo la ley D'Hont, llevando a este **plural resultado**, y al cambio en el **tablero político** andaluz.
+
+## Curiosidades de los partidos sin representación. 
+
+Aparte de los grandes partidos que han conseguido representación, una **decena de ellos** se han **quedado** en el camino. 
+
+El partido de Alvise, **SALF**, se ha quedado con un 2,35% de votos, a pesar del **ruido inmenso** generado a través de las redes, y la queja de que **no participan** en los debates.
+
+El resto de partidos, que han sido **reivindicaciones** o protestas específicas, partidos de ideales **ultras**, o **partidos gestores**, han obtenido resultados que no superan ni el 0,6% de los votos.
+
+
