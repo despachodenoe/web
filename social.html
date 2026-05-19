@@ -241,7 +241,7 @@
       <div class="canvas-toolbar">
         <div class="canvas-nav">
           <button class="nav-btn" onclick="prevSlide()">‹</button>
-          <span class="slide-counter" id="slide-counter">1 / 5</span>
+          <span class="slide-counter" id="slide-counter">1 / 4</span>
           <button class="nav-btn" onclick="nextSlide()">›</button>
         </div>
         <div class="canvas-spacer"></div>
@@ -280,7 +280,7 @@
 <canvas id="c1" width="1080" height="1920" style="display:none"></canvas>
 <canvas id="c2" width="1080" height="1920" style="display:none"></canvas>
 <canvas id="c3" width="1080" height="1920" style="display:none"></canvas>
-<canvas id="c4" width="1080" height="1920" style="display:none"></canvas>
+<!-- only 4 slides -->
 
 <script>
 // ── State ─────────────────────────────────────────
@@ -290,7 +290,7 @@ const S = {
   img: null,        // HTMLImageElement
   imgData: null,    // dataURL
   currentSlide: 0,
-  activeSlides: [0,1,2,3,4],
+  activeSlides: [0,1,2,3],
   style: 0,
   data: {
     category: 'Opiniones',
@@ -310,12 +310,14 @@ const STYLES = [
 ];
 
 const SLIDES_META = [
-  { name: 'Portada',    desc: 'Imagen + categoría + título' },
-  { name: 'Extracto',  desc: 'Descripción del artículo' },
+  { name: 'Portada',   desc: 'Imagen + categoría + título + datos' },
+  { name: 'Extracto',  desc: 'Imagen + título + descripción' },
   { name: 'Frase',     desc: 'Cita destacada' },
-  { name: 'Datos',     desc: 'Categoría + tiempo de lectura' },
-  { name: 'CTA',       desc: 'Visita despachodenoe.es' },
+  { name: 'CTA',       desc: 'Logo + visita la web' },
 ];
+
+// Only 4 slides now
+
 
 // ── Auth ───────────────────────────────────────────
 function saveAuth() { localStorage.setItem('dn_s_user', S.user); localStorage.setItem('dn_s_repo', S.repo); localStorage.setItem('dn_s_token', S.token); }
@@ -396,7 +398,9 @@ async function loadArticle() {
         const imgFile = await ghFetch(`/contents/${imgPath}`);
         const ext = imgPath.split('.').pop().toLowerCase();
         const mime = ext === 'png' ? 'image/png' : ext === 'gif' ? 'image/gif' : 'image/jpeg';
-        const dataUrl = `data:${mime};base64,${imgFile.content.replace(/\n/g,'')}`;
+        // Strip ALL whitespace (newlines, spaces) from base64 — critical for large images
+        const b64clean = imgFile.content.replace(/[\s]/g, '');
+        const dataUrl = `data:${mime};base64,${b64clean}`;
         setImage(dataUrl);
         toast('Artículo e imagen cargados');
       } catch { toast('Artículo cargado (imagen no encontrada)'); }
@@ -474,7 +478,7 @@ function buildThumbNav() {
 
 // ── Navigation ─────────────────────────────────────
 function prevSlide() { if(S.currentSlide > 0) { S.currentSlide--; showSlide(); } }
-function nextSlide() { if(S.currentSlide < 4) { S.currentSlide++; showSlide(); } }
+function nextSlide() { if(S.currentSlide < 3) { S.currentSlide++; showSlide(); } }
 function goSlide(i) { S.currentSlide = i; showSlide(); }
 function showSlide() {
   const c = document.getElementById('main-canvas');
@@ -485,7 +489,7 @@ function showSlide() {
   updateCounter();
 }
 function updateCounter() {
-  document.getElementById('slide-counter').textContent = `${S.currentSlide+1} / 5`;
+  document.getElementById('slide-counter').textContent = `${S.currentSlide+1} / 4`;
 }
 
 // ── Data sync ──────────────────────────────────────
@@ -497,7 +501,7 @@ function syncData() {
   S.data.readtime = document.getElementById('f-readtime').value;
 }
 function renderCurrent() { syncData(); drawSlide(S.currentSlide); showSlide(); }
-function renderAll() { syncData(); for(let i=0;i<5;i++) drawSlide(i); showSlide(); }
+function renderAll() { syncData(); for(let i=0;i<4;i++) drawSlide(i); showSlide(); }
 
 // ── Canvas drawing engine ──────────────────────────
 function drawSlide(idx) {
@@ -511,8 +515,7 @@ function drawSlide(idx) {
     case 0: drawCover(ctx, W, H, st); break;
     case 1: drawExtract(ctx, W, H, st); break;
     case 2: drawQuote(ctx, W, H, st); break;
-    case 3: drawStats(ctx, W, H, st); break;
-    case 4: drawCTA(ctx, W, H, st); break;
+    case 3: drawCTA(ctx, W, H, st); break;
   }
 }
 
@@ -621,29 +624,31 @@ function drawCover(ctx, W, H, st) {
     const sw = iw*scale, sh = ih*scale;
     ctx.drawImage(S.img, (W-sw)/2, (H-sh)/2, sw, sh);
     // Gradient overlay bottom
-    const grad = ctx.createLinearGradient(0, H*0.35, 0, H);
+    const grad = ctx.createLinearGradient(0, H*0.3, 0, H);
     grad.addColorStop(0, 'rgba(0,0,0,0)');
-    grad.addColorStop(0.5, 'rgba(10,20,14,0.82)');
-    grad.addColorStop(1,   'rgba(10,20,14,0.97)');
+    grad.addColorStop(0.45, 'rgba(10,20,14,0.85)');
+    grad.addColorStop(1,   'rgba(10,20,14,0.98)');
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, W, H);
     // Top gradient
-    const gradTop = ctx.createLinearGradient(0, 0, 0, 200);
-    gradTop.addColorStop(0, 'rgba(10,20,14,0.7)');
+    const gradTop = ctx.createLinearGradient(0, 0, 0, 220);
+    gradTop.addColorStop(0, 'rgba(10,20,14,0.75)');
     gradTop.addColorStop(1, 'rgba(0,0,0,0)');
     ctx.fillStyle = gradTop;
-    ctx.fillRect(0, 0, W, 200);
+    ctx.fillRect(0, 0, W, 220);
   }
 
-  drawBrandBar(ctx, W, H, st);
+  // Top accent bar
+  ctx.fillStyle = st.accent;
+  ctx.fillRect(0, 0, W, 6);
 
-  // Top: logo area
-  ctx.font = '600 30px "Montserrat", sans-serif';
-  ctx.fillStyle = 'rgba(255,255,255,0.9)';
+  // Top: logo
+  ctx.font = '600 28px "Montserrat", sans-serif';
+  ctx.fillStyle = 'rgba(255,255,255,0.88)';
   ctx.textAlign = 'left';
-  ctx.fillText('DESPACHO DE NOÉ', 80, 90);
+  ctx.fillText('DESPACHO DE NOÉ', 80, 88);
 
-  // Category pill
+  // Category
   const catY = H * 0.52;
   ctx.font = '700 26px "Montserrat", sans-serif';
   ctx.fillStyle = st.accent;
@@ -655,16 +660,43 @@ function drawCover(ctx, W, H, st) {
   ctx.fillRect(80, catY + 16, 80, 3);
 
   // Title
-  ctx.font = `500 ${S.data.title && S.data.title.length > 40 ? '62' : '72'}px "Playfair Display", serif`;
+  const titleSize = S.data.title && S.data.title.length > 50 ? 60 : S.data.title && S.data.title.length > 35 ? 68 : 76;
+  ctx.font = `400 ${titleSize}px "Playfair Display", serif`;
   ctx.fillStyle = '#FFFFFF';
   ctx.textAlign = 'left';
-  wrapText(ctx, S.data.title || 'Título del artículo', 80, catY + 80, W - 160, 88);
+  const titleEnd = wrapText(ctx, S.data.title || 'Título del artículo', 80, catY + 76, W - 160, titleSize * 1.25);
 
-  // Bottom URL
-  ctx.font = '400 26px "Montserrat", sans-serif';
-  ctx.fillStyle = 'rgba(255,255,255,0.5)';
-  ctx.textAlign = 'center';
-  ctx.fillText('despachodenoe.es', W/2, H - 60);
+  // ── Subtle stats row ──
+  const statsY = Math.max(titleEnd + 48, H * 0.78);
+  ctx.fillStyle = 'rgba(255,255,255,0.07)';
+  ctx.fillRect(80, statsY, W - 160, 90);
+  ctx.strokeStyle = 'rgba(255,255,255,0.08)';
+  ctx.lineWidth = 1;
+  ctx.strokeRect(80, statsY, W - 160, 90);
+
+  const statsItems = [
+    S.data.readtime || '5 min',
+    S.data.category || 'Opiniones',
+    'despachodenoe.es'
+  ];
+  ctx.font = '500 24px "Montserrat", sans-serif';
+  ctx.textAlign = 'left';
+  statsItems.forEach((item, i) => {
+    const x = 120 + i * ((W - 200) / 3);
+    // Dot separator
+    if (i > 0) {
+      ctx.fillStyle = st.accent;
+      ctx.beginPath();
+      ctx.arc(x - 20, statsY + 45, 3, 0, Math.PI*2);
+      ctx.fill();
+    }
+    ctx.fillStyle = i === 2 ? st.accent : 'rgba(255,255,255,0.55)';
+    ctx.fillText(item, x, statsY + 52);
+  });
+
+  // Bottom accent bar
+  ctx.fillStyle = st.accent;
+  ctx.fillRect(0, H-6, W, 6);
 }
 
 // ── Slide 1: Extract ───────────────────────────────
@@ -766,7 +798,7 @@ function drawQuote(ctx, W, H, st) {
   drawLogo(ctx, W, H, st, H - 130);
 }
 
-// ── Slide 3: Stats ─────────────────────────────────
+// ── [UNUSED] Stats ──────────────────────────────────
 function drawStats(ctx, W, H, st) {
   fillBg(ctx, W, H, st);
   drawBrandBar(ctx, W, H, st);
@@ -844,78 +876,89 @@ function drawStats(ctx, W, H, st) {
   ctx.fillText('DESPACHO DE NOÉ', W/2, H - 60);
 }
 
-// ── Slide 4: CTA ───────────────────────────────────
+// ── Slide 3: CTA — white bg, big logo, clean ──────
 function drawCTA(ctx, W, H, st) {
-  fillBg(ctx, W, H, st);
+  // Always white background for CTA
+  ctx.fillStyle = '#FFFFFF';
+  ctx.fillRect(0, 0, W, H);
 
-  // Image background very subtle
-  drawImageBg(ctx, W, H, 0.06);
-
-  // Green accent block top
+  // Top green bar
   ctx.fillStyle = st.accent;
-  ctx.fillRect(0, 0, W, 6);
+  ctx.fillRect(0, 0, W, 10);
 
-  // Large decorative N
-  ctx.font = '400 600px "Playfair Display", serif';
-  ctx.fillStyle = st.accent;
-  ctx.globalAlpha = 0.04;
+  // Large decorative letter — very subtle
+  ctx.font = '400 900px "Playfair Display", serif';
+  ctx.fillStyle = '#007A4D';
+  ctx.globalAlpha = 0.03;
   ctx.textAlign = 'center';
-  ctx.fillText('N', W/2, H * 0.65);
+  ctx.fillText('N', W/2, H * 0.72);
   ctx.globalAlpha = 1;
 
-  // Main content centered
-  const cy = H * 0.42;
+  // ── Logo block — centered, large ──
+  const logoY = H * 0.32;
 
-  // Logo mark
-  ctx.font = '500 44px "Montserrat", sans-serif';
-  ctx.fillStyle = st.text;
+  // Logotype
+  ctx.font = '300 52px "Montserrat", sans-serif';
+  ctx.fillStyle = '#0F1A14';
   ctx.textAlign = 'center';
-  ctx.fillText('DESPACHO DE NOÉ', W/2, cy - 120);
+  ctx.fillText('DESPACHO', W/2, logoY);
 
+  ctx.font = '700 52px "Montserrat", sans-serif';
   ctx.fillStyle = st.accent;
-  ctx.fillRect(W/2-60, cy-96, 120, 3);
+  ctx.fillText('DE NOÉ', W/2, logoY + 70);
 
-  // Headline
-  ctx.font = '400 90px "Playfair Display", serif';
-  ctx.fillStyle = st.text;
+  // Green rule
+  ctx.fillStyle = st.accent;
+  ctx.fillRect(W/2 - 80, logoY + 96, 160, 4);
+
+  // Tagline
+  ctx.font = '300 28px "Montserrat", sans-serif';
+  ctx.fillStyle = '#7A9186';
   ctx.textAlign = 'center';
-  wrapText(ctx, 'Lee el artículo completo', W/2 - (W-200)/2 + 80, cy - 40, W-200, 110);
+  ctx.fillText('Opiniones · Historias · Conversaciones', W/2, logoY + 148);
 
-  // URL pill
-  const pillW = 680, pillH = 110, pillX = (W-pillW)/2, pillY = cy + 180;
+  // ── Divider ──
+  ctx.fillStyle = '#E8F5EF';
+  ctx.fillRect(80, logoY + 196, W - 160, 2);
+
+  // ── CTA text ──
+  const ctaY = logoY + 280;
+  ctx.font = '400 72px "Playfair Display", serif';
+  ctx.fillStyle = '#0F1A14';
+  ctx.textAlign = 'center';
+  wrapText(ctx, 'Lee el artículo completo', W/2 - (W-200)/2 + 80, ctaY, W - 200, 90);
+
+  // ── URL pill ──
+  const pillW = 720, pillH = 116, pillX = (W-pillW)/2, pillY = ctaY + 200;
   ctx.fillStyle = st.accent;
   roundRect(ctx, pillX, pillY, pillW, pillH, pillH/2);
   ctx.fill();
 
-  ctx.font = '600 38px "Montserrat", sans-serif';
+  ctx.font = '600 40px "Montserrat", sans-serif';
   ctx.fillStyle = '#FFFFFF';
   ctx.textAlign = 'center';
-  ctx.fillText('despachodenoe.es', W/2, pillY + 68);
+  ctx.fillText('despachodenoe.es', W/2, pillY + 74);
 
-  // Arrow
-  ctx.font = '400 60px "Montserrat", sans-serif';
-  ctx.fillStyle = st.accent;
+  // ── Link in bio ──
+  ctx.font = '500 30px "Montserrat", sans-serif';
+  ctx.fillStyle = '#7A9186';
   ctx.textAlign = 'center';
-  ctx.fillText('↓', W/2, pillY + 210);
+  ctx.fillText('↑ Enlace en la bio', W/2, pillY + 172);
 
-  ctx.font = '300 30px "Montserrat", sans-serif';
-  ctx.fillStyle = st.sub;
-  ctx.fillText('Enlace en la bio', W/2, pillY + 268);
-
-  // Title reference small
+  // ── Article title reference ──
   if (S.data.title) {
-    ctx.font = '300 italic 28px "Playfair Display", serif';
-    ctx.fillStyle = st.sub;
-    ctx.globalAlpha = 0.6;
+    const short = S.data.title.length > 52 ? S.data.title.substring(0,52)+'...' : S.data.title;
+    ctx.font = 'italic 300 28px "Playfair Display", serif';
+    ctx.fillStyle = '#C2DDD2';
+    ctx.globalAlpha = 0.9;
     ctx.textAlign = 'center';
-    const short = S.data.title.length > 55 ? S.data.title.substring(0,55)+'...' : S.data.title;
-    ctx.fillText(`"${short}"`, W/2, H - 120);
+    ctx.fillText(`"${short}"`, W/2, H - 160);
     ctx.globalAlpha = 1;
   }
 
-  // Bottom bar
+  // Bottom green bar
   ctx.fillStyle = st.accent;
-  ctx.fillRect(0, H-6, W, 6);
+  ctx.fillRect(0, H - 10, W, 10);
 }
 
 // ── Export ─────────────────────────────────────────
