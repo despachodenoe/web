@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <meta name="mobile-web-app-capable" content="yes"/>
+  <meta name="theme-color" content="#007A4D"/>
+  <title>Social — Despacho de Noé</title>
+  <link rel="icon" type="image/svg+xml" href="assets/logo-square.svg"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --green:       #007A4D;
+      --green-dark:  #005C3A;
+      --green-light: #E8F5EF;
+      --green-mid:   #C2DDD2;
+      --ink:         #0F1A14;
+      --white:       #FFFFFF;
+      --off-white:   #F8FAF9;
+      --surface:     #F2F7F4;
+      --border:      #D4E4DA;
+      --text:        #1A2620;
+      --text-muted:  #4A5E54;
+      --text-faint:  #7A9186;
+      --font-display:'Playfair Display', Georgia, serif;
+      --font-ui:     'Montserrat', sans-serif;
+      --radius:      4px;
+      --transition:  0.2s cubic-bezier(0.4,0,0.2,1);
+      --shadow:      0 2px 16px rgba(0,0,0,0.08);
+      --shadow-lg:   0 8px 40px rgba(0,0,0,0.16);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; font-family: var(--font-ui); background: var(--off-white); color: var(--text); -webkit-font-smoothing: antialiased; }
+
+    /* ── Login ── */
+    #login-screen {
+      position: fixed; inset: 0; background: var(--ink);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      z-index: 1000; padding: 32px; transition: opacity 0.4s;
+    }
+    #login-screen.hidden { opacity: 0; pointer-events: none; }
+    .login-logo { font-family: var(--font-display); font-size: 26px; color: var(--white); margin-bottom: 4px; }
+    .login-logo span { color: var(--green); }
+    .login-sub { font-size: 9px; font-weight: 500; letter-spacing: 4px; text-transform: uppercase; color: var(--text-faint); margin-bottom: 40px; }
+    .login-card { background: #1C2B22; border: 1px solid rgba(0,122,77,0.3); border-radius: var(--radius); padding: 28px; width: 100%; max-width: 340px; }
+    .login-card h2 { font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--green); margin-bottom: 18px; }
+    .lf { display: flex; flex-direction: column; gap: 7px; margin-bottom: 14px; }
+    .lf label { font-size: 9px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--text-faint); }
+    .lf input { background: rgba(255,255,255,0.05); border: 1px solid rgba(0,122,77,0.25); border-radius: var(--radius); padding: 11px 13px; font-family: var(--font-ui); font-size: 13px; color: var(--white); outline: none; transition: var(--transition); }
+    .lf input:focus { border-color: var(--green); }
+    .lf input::placeholder { color: rgba(255,255,255,0.2); }
+    .btn-login { width: 100%; margin-top: 8px; background: var(--green); border: none; border-radius: var(--radius); padding: 13px; color: var(--white); font-family: var(--font-ui); font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; cursor: pointer; transition: var(--transition); }
+    .btn-login:hover { background: var(--green-dark); }
+    .login-err { margin-top: 10px; font-size: 11px; color: #e74c3c; text-align: center; display: none; }
+
+    /* ── App layout ── */
+    #app { display: flex; flex-direction: column; height: 100%; overflow: hidden; }
+
+    .topbar { background: var(--ink); border-bottom: 2px solid var(--green); height: 52px; display: flex; align-items: center; padding: 0 16px; gap: 12px; flex-shrink: 0; }
+    .topbar-logo { font-family: var(--font-display); font-size: 15px; color: var(--white); }
+    .topbar-logo span { color: var(--green); }
+    .topbar-badge { font-size: 8px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; background: rgba(0,122,77,0.25); color: var(--green); padding: 3px 8px; border-radius: 2px; }
+    .topbar-spacer { flex: 1; }
+
+    .main { display: flex; flex: 1; overflow: hidden; }
+
+    /* ── Left panel ── */
+    .panel-left { width: 300px; flex-shrink: 0; background: var(--white); border-right: 1px solid var(--border); display: flex; flex-direction: column; overflow: hidden; }
+    .panel-section { padding: 16px; border-bottom: 1px solid var(--border); }
+    .panel-label { font-size: 9px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--text-faint); margin-bottom: 12px; display: block; }
+
+    /* Article selector */
+    .article-select { width: 100%; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 9px 12px; font-family: var(--font-ui); font-size: 12px; color: var(--text); outline: none; appearance: none; cursor: pointer; transition: var(--transition); }
+    .article-select:focus { border-color: var(--green); }
+
+    /* Fields */
+    .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; }
+    .field label { font-size: 9px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--text-faint); }
+    .field input, .field textarea, .field select {
+      background: var(--off-white); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 9px 12px; font-family: var(--font-ui); font-size: 12px; font-weight: 300;
+      color: var(--text); outline: none; transition: var(--transition); width: 100%; appearance: none;
+    }
+    .field input:focus, .field textarea:focus, .field select:focus { border-color: var(--green); background: var(--white); }
+    .field textarea { min-height: 72px; resize: vertical; line-height: 1.6; }
+
+    /* Image upload in panel */
+    .img-drop { border: 2px dashed var(--border); border-radius: var(--radius); padding: 16px; text-align: center; cursor: pointer; transition: var(--transition); background: var(--off-white); }
+    .img-drop:hover, .img-drop.over { border-color: var(--green); background: var(--green-light); }
+    .img-drop p { font-size: 11px; color: var(--text-faint); line-height: 1.5; }
+    .img-drop strong { color: var(--green); font-weight: 600; }
+    .img-thumb { width: 100%; border-radius: var(--radius); object-fit: cover; aspect-ratio: 1/1; display: none; margin-top: 8px; }
+
+    /* Slide toggles */
+    .slide-list { display: flex; flex-direction: column; gap: 6px; overflow-y: auto; flex: 1; padding: 12px 16px; }
+    .slide-item { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; transition: var(--transition); user-select: none; }
+    .slide-item:hover { border-color: var(--green); background: var(--green-light); }
+    .slide-item.active { border-color: var(--green); background: var(--green-light); }
+    .slide-num { width: 22px; height: 22px; background: var(--ink); color: var(--white); border-radius: 50%; font-size: 9px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .slide-item.active .slide-num { background: var(--green); }
+    .slide-info { flex: 1; }
+    .slide-name { font-size: 11px; font-weight: 600; color: var(--text); }
+    .slide-desc { font-size: 10px; color: var(--text-faint); margin-top: 1px; }
+    .slide-check { width: 14px; height: 14px; border: 1.5px solid var(--border); border-radius: 2px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: var(--transition); }
+    .slide-item.active .slide-check { background: var(--green); border-color: var(--green); color: white; font-size: 9px; }
+
+    /* ── Center: canvas preview ── */
+    .panel-center { flex: 1; display: flex; flex-direction: column; align-items: center; background: #E8EDE9; overflow: hidden; }
+    .canvas-toolbar { width: 100%; padding: 10px 16px; display: flex; align-items: center; gap: 8px; background: var(--white); border-bottom: 1px solid var(--border); flex-shrink: 0; }
+    .canvas-nav { display: flex; gap: 4px; align-items: center; }
+    .nav-btn { background: none; border: 1px solid var(--border); border-radius: var(--radius); width: 28px; height: 28px; cursor: pointer; font-size: 14px; color: var(--text-muted); transition: var(--transition); display: flex; align-items: center; justify-content: center; }
+    .nav-btn:hover { border-color: var(--green); color: var(--green); }
+    .slide-counter { font-size: 11px; font-weight: 600; color: var(--text-muted); padding: 0 8px; white-space: nowrap; }
+    .canvas-spacer { flex: 1; }
+
+    .btn { font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; border-radius: var(--radius); border: none; cursor: pointer; transition: var(--transition); padding: 8px 16px; display: inline-flex; align-items: center; gap: 6px; }
+    .btn-primary { background: var(--green); color: var(--white); }
+    .btn-primary:hover { background: var(--green-dark); }
+    .btn-outline { background: none; color: var(--green); border: 1px solid var(--green-mid); }
+    .btn-outline:hover { background: var(--green-light); }
+    .btn-ghost { background: none; color: var(--text-muted); border: 1px solid var(--border); }
+    .btn-ghost:hover { border-color: var(--green); color: var(--green); }
+
+    .canvas-wrap { flex: 1; display: flex; align-items: center; justify-content: center; padding: 20px; overflow: auto; }
+    canvas { border-radius: 8px; box-shadow: var(--shadow-lg); max-height: 100%; width: auto; }
+
+    /* ── Right panel ── */
+    .panel-right { width: 220px; flex-shrink: 0; background: var(--white); border-left: 1px solid var(--border); display: flex; flex-direction: column; overflow-y: auto; padding: 16px; gap: 16px; }
+    .export-section { display: flex; flex-direction: column; gap: 8px; }
+    .export-btn { width: 100%; text-align: center; justify-content: center; }
+    .export-info { font-size: 10px; color: var(--text-faint); line-height: 1.5; }
+
+    /* Style options */
+    .style-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+    .style-opt { border: 2px solid var(--border); border-radius: var(--radius); padding: 8px; cursor: pointer; transition: var(--transition); text-align: center; }
+    .style-opt:hover, .style-opt.active { border-color: var(--green); background: var(--green-light); }
+    .style-opt-name { font-size: 9px; font-weight: 600; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; }
+    .style-swatch { height: 24px; border-radius: 2px; margin-bottom: 6px; }
+
+    /* Spinner */
+    .spinner { width: 14px; height: 14px; border: 2px solid rgba(255,255,255,0.3); border-top-color: white; border-radius: 50%; animation: spin 0.7s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Toast */
+    #toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: var(--ink); color: white; font-size: 11px; font-weight: 500; letter-spacing: 1px; padding: 11px 20px; border-radius: var(--radius); border-left: 3px solid var(--green); box-shadow: var(--shadow-lg); opacity: 0; transition: opacity 0.3s; pointer-events: none; white-space: nowrap; z-index: 999; }
+    #toast.show { opacity: 1; }
+
+    @media (max-width: 900px) {
+      .panel-right { display: none; }
+      .panel-left { width: 260px; }
+    }
+    @media (max-width: 640px) {
+      .panel-left { width: 100%; position: absolute; height: calc(100% - 52px); z-index: 5; transform: translateX(-100%); transition: transform 0.3s; }
+      .panel-left.open { transform: translateX(0); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="login-screen">
+  <div class="login-logo">Despacho <span>de Noé</span></div>
+  <div class="login-sub">Generador de contenido social</div>
+  <div class="login-card">
+    <h2>Conectar con GitHub</h2>
+    <div class="lf"><label>Usuario</label><input id="gh-user" type="text" placeholder="tu-usuario"/></div>
+    <div class="lf"><label>Repositorio</label><input id="gh-repo" type="text" placeholder="nombre-del-repo"/></div>
+    <div class="lf"><label>Token</label><input id="gh-token" type="password" placeholder="ghp_xxxxxxxxxxxx"/></div>
+    <button class="btn-login" onclick="doLogin()">Entrar</button>
+    <div class="login-err" id="login-err">No se pudo conectar. Revisa los datos.</div>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app">
+  <div class="topbar">
+    <div class="topbar-logo">Despacho <span>de Noé</span></div>
+    <div class="topbar-badge">Social</div>
+    <div class="topbar-spacer"></div>
+    <button class="btn btn-ghost" onclick="togglePanel()" id="panel-toggle" style="display:none;">☰ Artículo</button>
+  </div>
+
+  <div class="main">
+
+    <!-- LEFT PANEL -->
+    <div class="panel-left" id="panel-left">
+
+      <!-- Article selector -->
+      <div class="panel-section">
+        <span class="panel-label">Artículo</span>
+        <select class="article-select" id="article-select" onchange="loadArticle()">
+          <option value="">Cargando...</option>
+        </select>
+      </div>
+
+      <!-- Content fields -->
+      <div class="panel-section" style="overflow-y:auto;flex:1;">
+        <span class="panel-label">Contenido</span>
+
+        <div class="field">
+          <label>Categoría</label>
+          <input type="text" id="f-category" placeholder="Opiniones" oninput="renderCurrent()"/>
+        </div>
+        <div class="field">
+          <label>Título</label>
+          <textarea id="f-title" placeholder="El título del artículo" oninput="renderCurrent()"></textarea>
+        </div>
+        <div class="field">
+          <label>Extracto</label>
+          <textarea id="f-excerpt" placeholder="Descripción breve..." oninput="renderCurrent()"></textarea>
+        </div>
+        <div class="field">
+          <label>Frase destacada</label>
+          <textarea id="f-quote" placeholder="Una frase potente del artículo..." oninput="renderCurrent()"></textarea>
+        </div>
+        <div class="field">
+          <label>Tiempo de lectura</label>
+          <input type="text" id="f-readtime" placeholder="8 min de lectura" oninput="renderCurrent()"/>
+        </div>
+        <div class="field">
+          <label>Imagen de fondo</label>
+          <div class="img-drop" id="img-drop" onclick="document.getElementById('img-input').click()" ondragover="event.preventDefault();this.classList.add('over')" ondragleave="this.classList.remove('over')" ondrop="handleDrop(event)">
+            <p><strong>Pulsa</strong> o arrastra una imagen<br/>Recomendado: cuadrada 1:1</p>
+          </div>
+          <img id="img-thumb" class="img-thumb"/>
+          <input type="file" id="img-input" accept="image/*" style="display:none" onchange="handleImgSelect(event)"/>
+        </div>
+      </div>
+
+      <!-- Slide selector -->
+      <div style="padding:12px 16px 8px;border-top:1px solid var(--border);">
+        <span class="panel-label">Diapositivas</span>
+      </div>
+      <div class="slide-list" id="slide-list"></div>
+
+    </div>
+
+    <!-- CENTER CANVAS -->
+    <div class="panel-center">
+      <div class="canvas-toolbar">
+        <div class="canvas-nav">
+          <button class="nav-btn" onclick="prevSlide()">‹</button>
+          <span class="slide-counter" id="slide-counter">1 / 5</span>
+          <button class="nav-btn" onclick="nextSlide()">›</button>
+        </div>
+        <div class="canvas-spacer"></div>
+        <button class="btn btn-outline" onclick="renderAll()">↻ Regenerar</button>
+        <button class="btn btn-primary" onclick="exportCurrent()">↓ Exportar esta</button>
+        <button class="btn btn-primary" onclick="exportAll()">↓ Exportar todas</button>
+      </div>
+      <div class="canvas-wrap">
+        <canvas id="main-canvas" width="1080" height="1920"></canvas>
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="panel-right">
+      <span class="panel-label">Estilo</span>
+      <div class="style-grid" id="style-grid"></div>
+
+      <span class="panel-label" style="margin-top:8px;">Exportar</span>
+      <div class="export-section">
+        <button class="btn btn-primary export-btn" onclick="exportCurrent()">↓ Esta diapositiva</button>
+        <button class="btn btn-outline export-btn" onclick="exportAll()">↓ Todas (ZIP)</button>
+        <p class="export-info">Formato: PNG · 1080×1920px · Stories/Reels</p>
+      </div>
+
+      <span class="panel-label" style="margin-top:8px;">Navegación rápida</span>
+      <div id="thumb-nav" style="display:flex;flex-direction:column;gap:6px;"></div>
+    </div>
+
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<!-- Hidden canvases for each slide -->
+<canvas id="c0" width="1080" height="1920" style="display:none"></canvas>
+<canvas id="c1" width="1080" height="1920" style="display:none"></canvas>
+<canvas id="c2" width="1080" height="1920" style="display:none"></canvas>
+<canvas id="c3" width="1080" height="1920" style="display:none"></canvas>
+<canvas id="c4" width="1080" height="1920" style="display:none"></canvas>
+
+<script>
+// ── State ─────────────────────────────────────────
+const S = {
+  token: '', user: '', repo: '', branch: 'main',
+  articles: [],
+  img: null,        // HTMLImageElement
+  imgData: null,    // dataURL
+  currentSlide: 0,
+  activeSlides: [0,1,2,3,4],
+  style: 0,
+  data: {
+    category: 'Opiniones',
+    title: '',
+    excerpt: '',
+    quote: '',
+    readtime: '5 min de lectura',
+  }
+};
+
+// ── Design system ──────────────────────────────────
+const STYLES = [
+  { name: 'Verde', bg: '#0F1A14', accent: '#007A4D', text: '#FFFFFF', sub: '#C2DDD2' },
+  { name: 'Claro', bg: '#F8FAF9', accent: '#007A4D', text: '#0F1A14', sub: '#4A5E54' },
+  { name: 'Oscuro', bg: '#060D09', accent: '#00A866', text: '#FFFFFF', sub: '#7A9186' },
+  { name: 'Tierra', bg: '#1A130A', accent: '#C9813A', text: '#FFFFFF', sub: '#C2A882' },
+];
+
+const SLIDES_META = [
+  { name: 'Portada',    desc: 'Imagen + categoría + título' },
+  { name: 'Extracto',  desc: 'Descripción del artículo' },
+  { name: 'Frase',     desc: 'Cita destacada' },
+  { name: 'Datos',     desc: 'Categoría + tiempo de lectura' },
+  { name: 'CTA',       desc: 'Visita despachodenoe.es' },
+];
+
+// ── Auth ───────────────────────────────────────────
+function saveAuth() { localStorage.setItem('dn_s_user', S.user); localStorage.setItem('dn_s_repo', S.repo); localStorage.setItem('dn_s_token', S.token); }
+function loadAuth() {
+  S.user = localStorage.getItem('dn_s_user') || '';
+  S.repo = localStorage.getItem('dn_s_repo') || '';
+  S.token = localStorage.getItem('dn_s_token') || '';
+  if (S.user) document.getElementById('gh-user').value = S.user;
+  if (S.repo) document.getElementById('gh-repo').value = S.repo;
+}
+loadAuth();
+if (S.token && S.user && S.repo) { document.getElementById('gh-token').value = '••••••••'; setTimeout(doLogin, 100); }
+
+async function ghFetch(path, opts={}) {
+  const r = await fetch(`https://api.github.com/repos/${S.user}/${S.repo}${path}`, {
+    ...opts, headers: { 'Authorization': `token ${S.token}`, 'Accept': 'application/vnd.github.v3+json', ...(opts.headers||{}) }
+  });
+  if (!r.ok) throw new Error(`HTTP ${r.status}`);
+  return r.status === 204 ? null : r.json();
+}
+
+async function doLogin() {
+  S.user  = document.getElementById('gh-user').value.trim();
+  S.repo  = document.getElementById('gh-repo').value.trim();
+  S.token = document.getElementById('gh-token').value.trim();
+  if (!S.user || !S.repo || !S.token) return;
+  try {
+    await ghFetch('/branches/main');
+    S.branch = 'main';
+  } catch {
+    try { await ghFetch('/branches/master'); S.branch = 'master'; }
+    catch { document.getElementById('login-err').style.display='block'; return; }
+  }
+  saveAuth();
+  document.getElementById('login-screen').classList.add('hidden');
+  await loadArticles();
+  initUI();
+}
+
+// ── Load articles ──────────────────────────────────
+async function loadArticles() {
+  try {
+    const files = await ghFetch('/contents/_posts');
+    S.articles = files.filter(f => f.name.endsWith('.md'));
+    const sel = document.getElementById('article-select');
+    sel.innerHTML = '<option value="">— Selecciona un artículo —</option>' +
+      S.articles.map(a => `<option value="${a.path}">${a.name.replace('.md','').replace(/-/g,' ')}</option>`).join('');
+  } catch(e) { toast('Error cargando artículos: ' + e.message, true); }
+}
+
+async function loadArticle() {
+  const path = document.getElementById('article-select').value;
+  if (!path) return;
+  try {
+    const file = await ghFetch(`/contents/${path}`);
+    const raw = decodeURIComponent(escape(atob(file.content.replace(/\n/g,''))));
+    const fm = raw.match(/^---\n([\s\S]*?)\n---/);
+    if (!fm) return;
+    const get = k => { const m = fm[1].match(new RegExp(`^${k}:\\s*(.+)$`,'m')); return m ? m[1].trim().replace(/^["']|["']$/g,'') : ''; };
+
+    const title    = get('title');
+    const category = get('category');
+    const excerpt  = get('excerpt');
+    const readmin  = get('read_min') || '5';
+    const imgPath  = get('image');
+
+    document.getElementById('f-title').value    = title;
+    document.getElementById('f-category').value = category.charAt(0).toUpperCase() + category.slice(1);
+    document.getElementById('f-excerpt').value  = excerpt;
+    document.getElementById('f-readtime').value = `${readmin} min de lectura`;
+    document.getElementById('f-quote').value    = '';
+
+    S.data = { category: category.charAt(0).toUpperCase() + category.slice(1), title, excerpt, quote: '', readtime: `${readmin} min de lectura` };
+
+    // Load image from GitHub if exists
+    if (imgPath) {
+      try {
+        const imgFile = await ghFetch(`/contents/${imgPath}`);
+        const ext = imgPath.split('.').pop().toLowerCase();
+        const mime = ext === 'png' ? 'image/png' : ext === 'gif' ? 'image/gif' : 'image/jpeg';
+        const dataUrl = `data:${mime};base64,${imgFile.content.replace(/\n/g,'')}`;
+        setImage(dataUrl);
+        toast('Artículo e imagen cargados');
+      } catch { toast('Artículo cargado (imagen no encontrada)'); }
+    } else {
+      S.img = null; S.imgData = null;
+      document.getElementById('img-thumb').style.display = 'none';
+      document.getElementById('img-drop').style.display = 'block';
+      toast('Artículo cargado');
+    }
+    renderAll();
+  } catch(e) { toast('Error: ' + e.message, true); }
+}
+
+// ── Image handling ─────────────────────────────────
+function handleImgSelect(e) { const f = e.target.files[0]; if(f) readFile(f); }
+function handleDrop(e) { e.preventDefault(); document.getElementById('img-drop').classList.remove('over'); const f = e.dataTransfer.files[0]; if(f && f.type.startsWith('image/')) readFile(f); }
+function readFile(file) { const r = new FileReader(); r.onload = e => setImage(e.target.result); r.readAsDataURL(file); }
+function setImage(dataUrl) {
+  S.imgData = dataUrl;
+  const img = new Image(); img.onload = () => { S.img = img; renderAll(); };
+  img.src = dataUrl;
+  const thumb = document.getElementById('img-thumb');
+  thumb.src = dataUrl; thumb.style.display = 'block';
+  document.getElementById('img-drop').style.display = 'none';
+}
+
+// ── UI init ────────────────────────────────────────
+function initUI() {
+  // Style swatches
+  const sg = document.getElementById('style-grid');
+  sg.innerHTML = STYLES.map((st,i) => `
+    <div class="style-opt ${i===0?'active':''}" onclick="setStyle(${i})">
+      <div class="style-swatch" style="background:${st.bg};border:1px solid ${st.accent};"></div>
+      <div class="style-opt-name">${st.name}</div>
+    </div>`).join('');
+
+  // Slide list
+  const sl = document.getElementById('slide-list');
+  sl.innerHTML = SLIDES_META.map((s,i) => `
+    <div class="slide-item active" id="slide-item-${i}" onclick="toggleSlide(${i})">
+      <div class="slide-num">${i+1}</div>
+      <div class="slide-info"><div class="slide-name">${s.name}</div><div class="slide-desc">${s.desc}</div></div>
+      <div class="slide-check">✓</div>
+    </div>`).join('');
+
+  // Thumb nav
+  buildThumbNav();
+  renderAll();
+}
+
+function setStyle(i) {
+  S.style = i;
+  document.querySelectorAll('.style-opt').forEach((el,j) => el.classList.toggle('active', j===i));
+  renderAll();
+}
+
+function toggleSlide(i) {
+  const idx = S.activeSlides.indexOf(i);
+  if (idx > -1) { if (S.activeSlides.length > 1) S.activeSlides.splice(idx,1); }
+  else S.activeSlides.push(i);
+  S.activeSlides.sort((a,b)=>a-b);
+  document.getElementById(`slide-item-${i}`).classList.toggle('active', S.activeSlides.includes(i));
+  updateCounter();
+}
+
+function buildThumbNav() {
+  const tn = document.getElementById('thumb-nav');
+  tn.innerHTML = SLIDES_META.map((s,i) => `
+    <div onclick="goSlide(${i})" style="padding:8px 10px;border:1px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:var(--transition);font-size:10px;font-weight:600;color:var(--text-muted);" id="tn-${i}"
+      onmouseover="this.style.borderColor='var(--green)';this.style.color='var(--green)'"
+      onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-muted)'">
+      ${i+1}. ${s.name}
+    </div>`).join('');
+}
+
+// ── Navigation ─────────────────────────────────────
+function prevSlide() { if(S.currentSlide > 0) { S.currentSlide--; showSlide(); } }
+function nextSlide() { if(S.currentSlide < 4) { S.currentSlide++; showSlide(); } }
+function goSlide(i) { S.currentSlide = i; showSlide(); }
+function showSlide() {
+  const c = document.getElementById('main-canvas');
+  const src = document.getElementById(`c${S.currentSlide}`);
+  const ctx = c.getContext('2d');
+  ctx.clearRect(0,0,1080,1920);
+  ctx.drawImage(src, 0, 0);
+  updateCounter();
+}
+function updateCounter() {
+  document.getElementById('slide-counter').textContent = `${S.currentSlide+1} / 5`;
+}
+
+// ── Data sync ──────────────────────────────────────
+function syncData() {
+  S.data.category = document.getElementById('f-category').value;
+  S.data.title    = document.getElementById('f-title').value;
+  S.data.excerpt  = document.getElementById('f-excerpt').value;
+  S.data.quote    = document.getElementById('f-quote').value;
+  S.data.readtime = document.getElementById('f-readtime').value;
+}
+function renderCurrent() { syncData(); drawSlide(S.currentSlide); showSlide(); }
+function renderAll() { syncData(); for(let i=0;i<5;i++) drawSlide(i); showSlide(); }
+
+// ── Canvas drawing engine ──────────────────────────
+function drawSlide(idx) {
+  const canvas = document.getElementById(`c${idx}`);
+  const ctx = canvas.getContext('2d');
+  const W = 1080, H = 1920;
+  const st = STYLES[S.style];
+  ctx.clearRect(0,0,W,H);
+
+  switch(idx) {
+    case 0: drawCover(ctx, W, H, st); break;
+    case 1: drawExtract(ctx, W, H, st); break;
+    case 2: drawQuote(ctx, W, H, st); break;
+    case 3: drawStats(ctx, W, H, st); break;
+    case 4: drawCTA(ctx, W, H, st); break;
+  }
+}
+
+// ── Drawing helpers ────────────────────────────────
+function fillBg(ctx, W, H, st) {
+  ctx.fillStyle = st.bg;
+  ctx.fillRect(0, 0, W, H);
+}
+
+function drawImageBg(ctx, W, H, opacity=0.35, blur=false) {
+  if (!S.img) return;
+  ctx.save();
+  ctx.globalAlpha = opacity;
+  // Cover fill
+  const iw = S.img.naturalWidth, ih = S.img.naturalHeight;
+  const scale = Math.max(W/iw, H/ih);
+  const sw = iw*scale, sh = ih*scale;
+  ctx.drawImage(S.img, (W-sw)/2, (H-sh)/2, sw, sh);
+  ctx.restore();
+}
+
+function drawImageCentered(ctx, W, yCenter, size) {
+  if (!S.img) return;
+  const iw = S.img.naturalWidth, ih = S.img.naturalHeight;
+  // Crop to square
+  const s = Math.min(iw, ih);
+  const sx = (iw-s)/2, sy = (ih-s)/2;
+  const x = (W-size)/2, y = yCenter - size/2;
+  // Rounded rect clip
+  ctx.save();
+  roundRect(ctx, x, y, size, size, 12);
+  ctx.clip();
+  ctx.drawImage(S.img, sx, sy, s, s, x, y, size, size);
+  ctx.restore();
+}
+
+function roundRect(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x+r, y);
+  ctx.lineTo(x+w-r, y);
+  ctx.quadraticCurveTo(x+w, y, x+w, y+r);
+  ctx.lineTo(x+w, y+h-r);
+  ctx.quadraticCurveTo(x+w, y+h, x+w-r, y+h);
+  ctx.lineTo(x+r, y+h);
+  ctx.quadraticCurveTo(x, y+h, x, y+h-r);
+  ctx.lineTo(x, y+r);
+  ctx.quadraticCurveTo(x, y, x+r, y);
+  ctx.closePath();
+}
+
+function drawAccentLine(ctx, W, y, st) {
+  ctx.fillStyle = st.accent;
+  ctx.fillRect(80, y, 60, 4);
+}
+
+function drawLogo(ctx, W, H, st, y) {
+  ctx.font = '500 36px "Montserrat", sans-serif';
+  ctx.fillStyle = st.sub;
+  ctx.textAlign = 'center';
+  ctx.fillText('DESPACHO DE NOÉ', W/2, y);
+  ctx.font = '300 22px "Montserrat", sans-serif';
+  ctx.fillStyle = st.accent;
+  ctx.fillText('despachodenoe.es', W/2, y+44);
+}
+
+function wrapText(ctx, text, x, y, maxW, lineH) {
+  if (!text) return y;
+  const words = text.split(' ');
+  let line = '', cy = y;
+  for (const w of words) {
+    const test = line ? line + ' ' + w : w;
+    if (ctx.measureText(test).width > maxW && line) {
+      ctx.fillText(line, x, cy);
+      line = w; cy += lineH;
+    } else line = test;
+  }
+  if (line) { ctx.fillText(line, x, cy); cy += lineH; }
+  return cy;
+}
+
+function drawBrandBar(ctx, W, H, st) {
+  // Bottom bar
+  ctx.fillStyle = st.accent;
+  ctx.fillRect(0, H-8, W, 8);
+  // Top bar
+  ctx.fillRect(0, 0, W, 6);
+}
+
+function drawCategory(ctx, W, y, st) {
+  ctx.font = '700 28px "Montserrat", sans-serif';
+  ctx.fillStyle = st.accent;
+  ctx.textAlign = 'left';
+  ctx.letterSpacing = '4px';
+  ctx.fillText((S.data.category || 'OPINIONES').toUpperCase(), 80, y);
+  ctx.letterSpacing = '0px';
+}
+
+// ── Slide 0: Cover ─────────────────────────────────
+function drawCover(ctx, W, H, st) {
+  fillBg(ctx, W, H, st);
+
+  // Full bleed image with dark overlay
+  if (S.img) {
+    const iw = S.img.naturalWidth, ih = S.img.naturalHeight;
+    const scale = Math.max(W/iw, H/ih);
+    const sw = iw*scale, sh = ih*scale;
+    ctx.drawImage(S.img, (W-sw)/2, (H-sh)/2, sw, sh);
+    // Gradient overlay bottom
+    const grad = ctx.createLinearGradient(0, H*0.35, 0, H);
+    grad.addColorStop(0, 'rgba(0,0,0,0)');
+    grad.addColorStop(0.5, 'rgba(10,20,14,0.82)');
+    grad.addColorStop(1,   'rgba(10,20,14,0.97)');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, W, H);
+    // Top gradient
+    const gradTop = ctx.createLinearGradient(0, 0, 0, 200);
+    gradTop.addColorStop(0, 'rgba(10,20,14,0.7)');
+    gradTop.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = gradTop;
+    ctx.fillRect(0, 0, W, 200);
+  }
+
+  drawBrandBar(ctx, W, H, st);
+
+  // Top: logo area
+  ctx.font = '600 30px "Montserrat", sans-serif';
+  ctx.fillStyle = 'rgba(255,255,255,0.9)';
+  ctx.textAlign = 'left';
+  ctx.fillText('DESPACHO DE NOÉ', 80, 90);
+
+  // Category pill
+  const catY = H * 0.52;
+  ctx.font = '700 26px "Montserrat", sans-serif';
+  ctx.fillStyle = st.accent;
+  ctx.textAlign = 'left';
+  ctx.fillText((S.data.category || '').toUpperCase(), 80, catY);
+
+  // Accent line
+  ctx.fillStyle = st.accent;
+  ctx.fillRect(80, catY + 16, 80, 3);
+
+  // Title
+  ctx.font = `500 ${S.data.title && S.data.title.length > 40 ? '62' : '72'}px "Playfair Display", serif`;
+  ctx.fillStyle = '#FFFFFF';
+  ctx.textAlign = 'left';
+  wrapText(ctx, S.data.title || 'Título del artículo', 80, catY + 80, W - 160, 88);
+
+  // Bottom URL
+  ctx.font = '400 26px "Montserrat", sans-serif';
+  ctx.fillStyle = 'rgba(255,255,255,0.5)';
+  ctx.textAlign = 'center';
+  ctx.fillText('despachodenoe.es', W/2, H - 60);
+}
+
+// ── Slide 1: Extract ───────────────────────────────
+function drawExtract(ctx, W, H, st) {
+  fillBg(ctx, W, H, st);
+  drawBrandBar(ctx, W, H, st);
+
+  // Subtle image top area
+  if (S.img) {
+    ctx.save();
+    ctx.globalAlpha = 0.12;
+    const iw = S.img.naturalWidth, ih = S.img.naturalHeight;
+    const scale = Math.max(W/iw, H*0.5/ih);
+    const sw = iw*scale, sh = ih*scale;
+    ctx.drawImage(S.img, (W-sw)/2, 0, sw, sh);
+    ctx.restore();
+    const grad = ctx.createLinearGradient(0, H*0.3, 0, H*0.55);
+    grad.addColorStop(0, 'rgba(0,0,0,0)');
+    grad.addColorStop(1, st.bg);
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, W, H*0.55);
+  }
+
+  // Image square centered top
+  drawImageCentered(ctx, W, H * 0.3, 520);
+  // Border around image
+  ctx.save();
+  roundRect(ctx, (W-520)/2, H*0.3-260, 520, 520, 12);
+  ctx.strokeStyle = st.accent;
+  ctx.lineWidth = 3;
+  ctx.stroke();
+  ctx.restore();
+
+  // Category
+  drawCategory(ctx, W, H * 0.63, st);
+  drawAccentLine(ctx, W, H * 0.63 + 18, st);
+
+  // Title
+  ctx.font = `400 ${S.data.title && S.data.title.length > 50 ? '56' : '66'}px "Playfair Display", serif`;
+  ctx.fillStyle = st.text;
+  ctx.textAlign = 'left';
+  const titleEnd = wrapText(ctx, S.data.title || '', 80, H * 0.63 + 80, W-160, 80);
+
+  // Excerpt
+  ctx.font = '300 34px "Montserrat", sans-serif';
+  ctx.fillStyle = st.sub;
+  ctx.textAlign = 'left';
+  wrapText(ctx, S.data.excerpt || '', 80, titleEnd + 40, W-160, 50);
+
+  // Bottom
+  drawLogo(ctx, W, H, st, H - 130);
+}
+
+// ── Slide 2: Quote ─────────────────────────────────
+function drawQuote(ctx, W, H, st) {
+  fillBg(ctx, W, H, st);
+
+  // Background image very subtle
+  drawImageBg(ctx, W, H, 0.08);
+
+  drawBrandBar(ctx, W, H, st);
+
+  // Large decorative quote mark
+  ctx.font = '400 400px "Playfair Display", serif';
+  ctx.fillStyle = st.accent;
+  ctx.globalAlpha = 0.08;
+  ctx.textAlign = 'left';
+  ctx.fillText('"', 40, 620);
+  ctx.globalAlpha = 1;
+
+  // Opening quote
+  ctx.font = '400 80px "Playfair Display", serif';
+  ctx.fillStyle = st.accent;
+  ctx.textAlign = 'left';
+  ctx.fillText('"', 80, H * 0.38);
+
+  // Quote text
+  ctx.font = `400 ${S.data.quote && S.data.quote.length > 80 ? '58' : '70'}px "Playfair Display", serif`;
+  ctx.fillStyle = st.text;
+  ctx.textAlign = 'left';
+  const qEnd = wrapText(ctx, S.data.quote || 'Añade una frase destacada del artículo', 80, H * 0.38 + 80, W-160, 90);
+
+  // Closing quote
+  ctx.font = '400 80px "Playfair Display", serif';
+  ctx.fillStyle = st.accent;
+  ctx.textAlign = 'right';
+  ctx.fillText('"', W-80, qEnd + 20);
+
+  // Accent line
+  ctx.fillStyle = st.accent;
+  ctx.fillRect(80, qEnd + 60, 100, 4);
+
+  // Source
+  ctx.font = '500 28px "Montserrat", sans-serif';
+  ctx.fillStyle = st.sub;
+  ctx.textAlign = 'left';
+  ctx.fillText('— Despacho de Noé', 80, qEnd + 110);
+
+  drawLogo(ctx, W, H, st, H - 130);
+}
+
+// ── Slide 3: Stats ─────────────────────────────────
+function drawStats(ctx, W, H, st) {
+  fillBg(ctx, W, H, st);
+  drawBrandBar(ctx, W, H, st);
+
+  // Image small circle top
+  if (S.img) {
+    const size = 300;
+    const cx = W/2, cy = H*0.22;
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(cx, cy, size/2, 0, Math.PI*2);
+    ctx.clip();
+    const iw = S.img.naturalWidth, ih = S.img.naturalHeight;
+    const s = Math.min(iw,ih);
+    ctx.drawImage(S.img, (iw-s)/2, (ih-s)/2, s, s, cx-size/2, cy-size/2, size, size);
+    ctx.restore();
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(cx, cy, size/2, 0, Math.PI*2);
+    ctx.strokeStyle = st.accent;
+    ctx.lineWidth = 6;
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  // Category
+  ctx.font = '700 30px "Montserrat", sans-serif';
+  ctx.fillStyle = st.accent;
+  ctx.textAlign = 'center';
+  ctx.fillText((S.data.category || '').toUpperCase(), W/2, H * 0.38);
+
+  // Title short
+  ctx.font = `400 ${S.data.title && S.data.title.length > 40 ? '54':'64'}px "Playfair Display", serif`;
+  ctx.fillStyle = st.text;
+  ctx.textAlign = 'center';
+  wrapText(ctx, S.data.title || '', W/2 - (W-200)/2 + 80, H * 0.38 + 60, W-200, 80);
+
+  // Divider
+  ctx.fillStyle = st.accent;
+  ctx.fillRect(W/2 - 50, H * 0.57, 100, 3);
+
+  // Stats cards
+  const stats = [
+    { icon: '⏱', label: 'Lectura', value: S.data.readtime || '5 min' },
+    { icon: '✦', label: 'Categoría', value: S.data.category || 'Opiniones' },
+    { icon: '🌐', label: 'Dónde', value: 'despachodenoe.es' },
+  ];
+
+  stats.forEach((stat, i) => {
+    const y = H * 0.61 + i * 170;
+    // Card bg
+    ctx.fillStyle = st.text === '#FFFFFF' ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.04)';
+    roundRect(ctx, 80, y, W-160, 140, 8);
+    ctx.fill();
+    ctx.strokeStyle = st.accent;
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    ctx.font = '400 40px "Montserrat", sans-serif';
+    ctx.fillStyle = st.sub;
+    ctx.textAlign = 'left';
+    ctx.fillText(stat.icon, 120, y + 82);
+
+    ctx.font = '300 26px "Montserrat", sans-serif';
+    ctx.fillStyle = st.sub;
+    ctx.fillText(stat.label.toUpperCase(), 190, y + 58);
+    ctx.font = '600 34px "Montserrat", sans-serif';
+    ctx.fillStyle = st.text;
+    ctx.fillText(stat.value, 190, y + 102);
+  });
+
+  ctx.font = '400 24px "Montserrat", sans-serif';
+  ctx.fillStyle = st.sub;
+  ctx.textAlign = 'center';
+  ctx.fillText('DESPACHO DE NOÉ', W/2, H - 60);
+}
+
+// ── Slide 4: CTA ───────────────────────────────────
+function drawCTA(ctx, W, H, st) {
+  fillBg(ctx, W, H, st);
+
+  // Image background very subtle
+  drawImageBg(ctx, W, H, 0.06);
+
+  // Green accent block top
+  ctx.fillStyle = st.accent;
+  ctx.fillRect(0, 0, W, 6);
+
+  // Large decorative N
+  ctx.font = '400 600px "Playfair Display", serif';
+  ctx.fillStyle = st.accent;
+  ctx.globalAlpha = 0.04;
+  ctx.textAlign = 'center';
+  ctx.fillText('N', W/2, H * 0.65);
+  ctx.globalAlpha = 1;
+
+  // Main content centered
+  const cy = H * 0.42;
+
+  // Logo mark
+  ctx.font = '500 44px "Montserrat", sans-serif';
+  ctx.fillStyle = st.text;
+  ctx.textAlign = 'center';
+  ctx.fillText('DESPACHO DE NOÉ', W/2, cy - 120);
+
+  ctx.fillStyle = st.accent;
+  ctx.fillRect(W/2-60, cy-96, 120, 3);
+
+  // Headline
+  ctx.font = '400 90px "Playfair Display", serif';
+  ctx.fillStyle = st.text;
+  ctx.textAlign = 'center';
+  wrapText(ctx, 'Lee el artículo completo', W/2 - (W-200)/2 + 80, cy - 40, W-200, 110);
+
+  // URL pill
+  const pillW = 680, pillH = 110, pillX = (W-pillW)/2, pillY = cy + 180;
+  ctx.fillStyle = st.accent;
+  roundRect(ctx, pillX, pillY, pillW, pillH, pillH/2);
+  ctx.fill();
+
+  ctx.font = '600 38px "Montserrat", sans-serif';
+  ctx.fillStyle = '#FFFFFF';
+  ctx.textAlign = 'center';
+  ctx.fillText('despachodenoe.es', W/2, pillY + 68);
+
+  // Arrow
+  ctx.font = '400 60px "Montserrat", sans-serif';
+  ctx.fillStyle = st.accent;
+  ctx.textAlign = 'center';
+  ctx.fillText('↓', W/2, pillY + 210);
+
+  ctx.font = '300 30px "Montserrat", sans-serif';
+  ctx.fillStyle = st.sub;
+  ctx.fillText('Enlace en la bio', W/2, pillY + 268);
+
+  // Title reference small
+  if (S.data.title) {
+    ctx.font = '300 italic 28px "Playfair Display", serif';
+    ctx.fillStyle = st.sub;
+    ctx.globalAlpha = 0.6;
+    ctx.textAlign = 'center';
+    const short = S.data.title.length > 55 ? S.data.title.substring(0,55)+'...' : S.data.title;
+    ctx.fillText(`"${short}"`, W/2, H - 120);
+    ctx.globalAlpha = 1;
+  }
+
+  // Bottom bar
+  ctx.fillStyle = st.accent;
+  ctx.fillRect(0, H-6, W, 6);
+}
+
+// ── Export ─────────────────────────────────────────
+function exportCurrent() {
+  renderAll();
+  const canvas = document.getElementById(`c${S.currentSlide}`);
+  const link = document.createElement('a');
+  link.download = `despacho-slide-${S.currentSlide+1}-${SLIDES_META[S.currentSlide].name.toLowerCase()}.png`;
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+  toast('Imagen descargada');
+}
+
+async function exportAll() {
+  renderAll();
+  // Export active slides one by one with small delay
+  const active = S.activeSlides;
+  for (let i = 0; i < active.length; i++) {
+    await new Promise(r => setTimeout(r, 200));
+    const canvas = document.getElementById(`c${active[i]}`);
+    const link = document.createElement('a');
+    link.download = `despacho-${String(i+1).padStart(2,'0')}-${SLIDES_META[active[i]].name.toLowerCase()}.png`;
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+  }
+  toast(`${active.length} imágenes descargadas`);
+}
+
+// ── Toast ──────────────────────────────────────────
+function toast(msg, err=false) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.style.borderLeftColor = err ? '#e74c3c' : 'var(--green)';
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+function togglePanel() {
+  document.getElementById('panel-left').classList.toggle('open');
+}
+
+// Show toggle on mobile
+if (window.innerWidth <= 640) {
+  document.getElementById('panel-toggle').style.display = '';
+}
+
+// Enter key login
+document.getElementById('gh-token').addEventListener('keydown', e => { if(e.key==='Enter') doLogin(); });
+</script>
+</body>
+</html>
