@@ -66,7 +66,7 @@ Del mismo modo, el **atuendo** suele ser el **chándal** en los casos más **mod
 
 ## Actitud pasiva o reactiva generalizado en los negocios.
 
-Si visitas un **negocio** en Marbella, que hay **jovenes** en él, hay una situación que empieza a repetirse como si de una **pandemia** se tratase.
+Si visitas un **negocio** en Marbella con **jovenes** en él, hay una situación que empieza a repetirse como si de una **pandemia** se tratase.
 
 La **actitud pasiva o reactiva** suele reproducirse con **demasiada frecuencia** en los negocios con atención al cliente. **Atención insuficiente**, poca profesionalidad, y en especial, una **falta de interés** por cumplir su cometido, que provocan **malas reseñas, reclamaciones** y un mal trago para el que las **sufre**.
 
