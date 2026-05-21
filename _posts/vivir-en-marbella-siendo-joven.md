@@ -50,9 +50,19 @@ Y si hablamos de **comprar** una casa... te sale mejor **un chalet, casa o piso*
 
 La **oferta de ocio** en Marbella para los jóvenes se basa en el concepto del **tardeo**.
 
-El **tardeo** es la forma elegante de **tomarse unas cervezas** en un lugar, porque otra cosa no se puede hacer.
+El **tardeo** es la forma elegante de **tomarse unas cervezas** en un lugar de restauración, porque otra cosa no se puede hacer.
 
 Y es algo que, mientras los jovenes de cualquier sitio van a una **bolera** o lugar de **juegos**, aquí lo normal es quedar para ir a un **tardeo**. 
 
-P
+Cierto es que **algunos colectivos públicos y privados** están intentando aumentar la oferta de **ocio**, pero o es **muy caro** para hacerlo regularmente, o es de carácter **limitado-reservado**.
+
+Lo que si parece que siempre puedes hacer es **deporte**, si es que te gusta, claro.
+
+Gimnasios, Padel, Futbol y Crossfit parece que es el **lema juvenil** en **Marbella**.
+
+## El estilismo se basa en chandal con brocoli
+
+El estilismo suele ser **la tendencia**, y recientemente ha sido el famoso peinado del **brócoli** (laterales rapados, superior con mucho volumen) 🥦.
+
+Del mismo modo, el **atuendo** suele ser el **chándal** en los casos más **modestos**, y la camisa de **lino** y pantalones **chinos** en d
 
