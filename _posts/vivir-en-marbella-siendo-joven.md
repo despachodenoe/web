@@ -64,5 +64,7 @@ Gimnasios, Padel, Futbol y Crossfit parece que es el **lema juvenil** en **Marbe
 
 El estilismo suele ser **la tendencia**, y recientemente ha sido el famoso peinado del **brócoli** (laterales rapados, superior con mucho volumen) 🥦.
 
-Del mismo modo, el **atuendo** suele ser el **chándal** en los casos más **modestos**, y la camisa de **lino** y pantalones **chinos** en d
+Del mismo modo, el **atuendo** suele ser el **chándal** en los casos más **modestos**, y la camisa de **lino** y pantalones **chinos** en el concepto del **lujo**.
+
+
 
