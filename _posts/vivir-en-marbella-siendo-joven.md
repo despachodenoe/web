@@ -56,9 +56,7 @@ Y es algo que, mientras los jovenes de cualquier sitio van a una **bolera** o lu
 
 Cierto es que **algunos colectivos públicos y privados** están intentando aumentar la oferta de **ocio**, pero o es **muy caro** para hacerlo regularmente, o es de carácter **limitado-reservado**.
 
-Lo que si parece que siempre puedes hacer es **deporte**, si es que te gusta, claro.
-
-Gimnasios, Padel, Futbol y Crossfit parece que es el **lema juvenil** en **Marbella**.
+Lo que si parece que siempre puedes hacer es **deporte**, si es que te gusta, claro. Gimnasios, Padel, Futbol y Crossfit parece que es el **lema juvenil** en **Marbella**.
 
 ## Chandal con brocoli y lino con clásico.
 
