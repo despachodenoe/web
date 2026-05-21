@@ -60,11 +60,32 @@ Lo que si parece que siempre puedes hacer es **deporte**, si es que te gusta, cl
 
 Gimnasios, Padel, Futbol y Crossfit parece que es el **lema juvenil** en **Marbella**.
 
-## El estilismo se basa en chandal con brocoli
+## Chandal con brocoli y lino con clásico.
 
 El estilismo suele ser **la tendencia**, y recientemente ha sido el famoso peinado del **brócoli** (laterales rapados, superior con mucho volumen) 🥦.
 
 Del mismo modo, el **atuendo** suele ser el **chándal** en los casos más **modestos**, y la camisa de **lino** y pantalones **chinos** en el concepto del **lujo**.
 
+## Actitud pasiva o reactiva generalizado en los negocios.
 
+Si visitas un **negocio** en Marbella, que hay **jovenes** en él, hay una situación que empieza a repetirse como si de una **pandemia** se tratase.
 
+La **actitud pasiva o reactiva** suele reproducirse con **demasiada frecuencia** en los negocios con atención al cliente. **Atención insuficiente**, poca profesionalidad, y en especial, una **falta de interés** por cumplir su cometido, que provocan **malas reseñas, reclamaciones** y un mal trago para el que las **sufre**.
+
+Los **responsables y encargados** tienden a tener que mediar **constantemente** por esta situación, y teniendo que **doblar** ante la **ineficiencia** de estas personas.
+
+De igual manera que cierto **epidemiologo** vaticinó el famoso *COVID-19*, con 1 o 2 casos aislados y luego resultó en **pandemia**, esta actitud se suele decir que son **casos aislados**, pero realmente se ha convertido en una **plaga invasora** que mata esa **cordialidad, seriedad y profesionalidad** que hace no mucho existía por defecto en Marbella.
+
+## Sueldos legales pero no para el coste de vida en Marbella.
+
+A ver, sin ser *defensor del diablo*, la **situación** de los jóvenes es entendible por que los sueldos no dan para poder vivir en una ciudad con el coste de vida **tan caro**.
+
+Los sueldos de empleos normales, suelen ser el famoso **SMI a 14 pagas** o con una pequeña **retribución** para mejorar algo ese ingreso, pero realmente una persona en cualquier **pueblo andaluz** puede ahorrar y vivir mejor que quien viva aquí.
+
+Tengo constancia de **personas** que se van a sus **pueblos** a comprar la comida, porque les compensa comprar **al por mayor** y congelar o guardar, que comprar **fresco** en el momento.
+
+## Vivir en Marbella siendo joven, un reto que asumimos cuando nacemos aquí.
+
+Realmente es un **reto** vivir aquí si eres **joven** y no tienes **padrinos o una red de apoyo socioeconomica**, porque está claro que **si no tienes nada aquí** es muy **dificil** vivir en **Marbella**.
+
+Unas costumbres que **deshumanizan** y convierten la **hospitalidad** y **buengentismo** en casos anecdóticos, y por el contrario, en ciertos **contextos** se convierte todo ello en una verdadera **ley de la selva** (el más fuerte es el que gana).
