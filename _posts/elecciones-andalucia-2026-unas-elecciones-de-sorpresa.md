@@ -1,6 +1,6 @@
 ---
 title: Elecciones Andalucia 2026, unas elecciones de sorpresa
-category: opiniones
+category: historias
 date: 2026-05-17
 excerpt: Las elecciones de Andalucía no han estado exentas de polemica por los mensajes y campañas que han predominado. Todo ello ha sorprendido a los resultados en las elecciones
 author: Noé
@@ -78,5 +78,3 @@ Aparte de los grandes partidos que han conseguido representación, una **decena 
 El partido de Alvise, **SALF**, se ha quedado con un 2,35% de votos, a pesar del **ruido inmenso** generado a través de las redes, y la queja de que **no participan** en los debates.
 
 El resto de partidos, que han sido **reivindicaciones** o protestas específicas, partidos de ideales **ultras**, o **partidos gestores**, han obtenido resultados que no superan ni el 0,6% de los votos.
-
-
