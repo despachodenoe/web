@@ -16,7 +16,7 @@ Pero realmente, vivir en una ciudad como **Marbella** es un **reto polarizado**,
 
 ## Diversidad categorizada, bajo el concepto de pedanías ficticias.
 
-La desconfianza suele ser un **patrón claro**, y prueba de ello suele ser la **dificultosa interacción social** que se produce entre los **habitantes de la ciudad**
+La **diversidad** suele ser un **concepto asumido**, pero existe una **dificultosa interacción social** que se produce entre los diferentes **habitantes de la ciudad**.
 
 El concepto de **comunidad** suele ser muy **perfilado**, y se suele **categorizar** bajo unos pretextos en función de la categoría **social, politica, cultural y económica**.
 
@@ -28,15 +28,15 @@ De otras ciudades no te puedo decir, pero en Marbella, dentro de nuestras **deno
 
 Un **mantecoso** responde a aquella persona que se magnifica en **halagos** y gentileza a aquella persona **que no pertenece** a la ciudad.
 
-Se han hecho muchos intentos por **erradicar** ese *sambenito*, pero realmente se sigue mostrando, en lo político y en lo social.
+Se han hecho muchos intentos por **erradicar** ese *sambenito*, pero realmente se sigue mostrando, y se suele preferir a lo **extranjero que a lo local**.
 
 ## Tener tu propio negocio es un verdadero reto.
 
 Comprar en los **negocios del centro**, tomarte un **cafe**, suele ser un deporte de **alto riesgo** según el lugar **que te lo tomes**, y sin mirar **la carta**.
 
-Pero ojo, **no echo la culpa** a los **autónomos** y **pymes**. El alquiler de un pequeño local, gastos de luz, agua seguros e impuestos, **obliga** a poner un precio, para al menos poder **vivir dignamente**. Aunque al final se tienda a **sobrevivir**.
+Pero ojo, **no echo la culpa** a los **autónomos** y **pymes** de Marbella. El alquiler de un pequeño local, gastos de luz, agua seguros e impuestos, **obliga** a poner un precio a cada producto, para al menos poder **vivir dignamente**. Aunque al final se tienda a **sobrevivir**.
 
-Por ello, si los jovenes quieren **emprender** con un negocio **modesto** con precios **populares**, lamento comunicarte que **Marbella no es el lugar**. El margen de beneficio y los costes, **no dan para compensar**.
+Por ello, si los jovenes quieren **emprender** con un negocio **modesto** con precios populares, **Marbella no es el lugar**. El margen de beneficio y los costes, es una **dificultad** que tambalea cualquier **emprendimiento**.
 
 ## Tener tu casa es más dificil que tocarte el gordo de la loteria.
 
@@ -52,11 +52,9 @@ La **oferta de ocio** en Marbella para los jóvenes se basa en el concepto del *
 
 El **tardeo** es la forma elegante de **tomarse unas cervezas** en un lugar de restauración, porque otra cosa no se puede hacer.
 
-Y es algo que, mientras los jovenes de cualquier sitio van a una **bolera** o lugar de **juegos**, aquí lo normal es quedar para ir a un **tardeo**. 
+Y es algo que, mientras los jovenes de cualquier sitio van a una **bolera** o lugar de **juegos**, aquí lo normal es quedar para ir a un **tardeo**. Y realmente es una **adaptación** ante la carencia de **propuestas alternativas**, más allá de los deportes populares (croosfit, pádel, futbol, gimnasios)
 
-Cierto es que **algunos colectivos públicos y privados** están intentando aumentar la oferta de **ocio**, pero o es **muy caro** para hacerlo regularmente, o es de carácter **limitado-reservado**.
-
-Lo que si parece que siempre puedes hacer es **deporte**, si es que te gusta, claro. Gimnasios, Padel, Futbol y Crossfit parece que es el **lema juvenil** en **Marbella**.
+Cierto es que **algunos colectivos públicos y privados** están intentando aumentar la oferta de **ocio**, pero disponen de **plazas limitadas** o **sutilmente** se dedica a sectores específicos de Marbella.
 
 ## Chandal con brocoli y lino con clásico.
 
@@ -64,15 +62,19 @@ El estilismo suele ser **la tendencia**, y recientemente ha sido el famoso peina
 
 Del mismo modo, el **atuendo** suele ser el **chándal** en los casos más **modestos**, y la camisa de **lino** y pantalones **chinos** en el concepto del **lujo**.
 
+Realmente se está generalizando en **cualquier sitio**, pero en Marbella es un **estigma** que exige mayor **disciplina** a la hora de vestir.
+
 ## Actitud pasiva o reactiva generalizado en los negocios.
 
-Si visitas un **negocio** en Marbella con **jovenes** en él, hay una situación que empieza a repetirse como si de una **pandemia** se tratase.
+Si visitas un **negocio** en Marbella con **jóvenes** en él, hay una situación que empieza a repetirse como si de una **pandemia** se tratase.
 
 La **actitud pasiva o reactiva** suele reproducirse con **demasiada frecuencia** en los negocios con atención al cliente. **Atención insuficiente**, poca profesionalidad, y en especial, una **falta de interés** por cumplir su cometido, que provocan **malas reseñas, reclamaciones** y un mal trago para el que las **sufre**.
 
 Los **responsables y encargados** tienden a tener que mediar **constantemente** por esta situación, y teniendo que **doblar** ante la **ineficiencia** de estas personas.
 
 De igual manera que cierto **epidemiologo** vaticinó el famoso *COVID-19*, con 1 o 2 casos aislados y luego resultó en **pandemia**, esta actitud se suele decir que son **casos aislados**, pero realmente se ha convertido en una **plaga invasora** que mata esa **cordialidad, seriedad y profesionalidad** que hace no mucho existía por defecto en Marbella.
+
+Es bastante desagradable **pagar por un servicio**, y que luego te traten mal.
 
 ## Sueldos legales pero no para el coste de vida en Marbella.
 
