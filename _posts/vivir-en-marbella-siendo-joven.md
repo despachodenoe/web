@@ -5,7 +5,8 @@ date: 2026-05-20
 excerpt: Vivir en una ciudad turística como Marbella solía ser considerado como algo que envidiar por los pueblos limitrofes y los que vivimos en ella, soñamos con salir. Pero ¿cómo es vivir siendo joven aquí?
 author: Noé
 slug: vivir-en-marbella-siendo-joven
-draft: true
+image: assets/images/gemini-generated-image-7quqqc7quqqc7quq-1779438392499.png
+draft: false
 ---
 
 Cuando una persona visita una ciudad como **Marbella** o cualquier ciudad **turistica** de la zona, siempre suele decir eso de *ojalá pudiera viviera aquí siempre*.
