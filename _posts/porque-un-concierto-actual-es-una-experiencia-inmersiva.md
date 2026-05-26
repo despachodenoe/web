@@ -5,6 +5,7 @@ date: 2026-05-26
 excerpt: Actualmente hay muchos artistas internacionales, con estilos peculiares, que llenan aforos en segundos. Pero ¿y si no es para ver al artista sino para vivir una experiencia?
 author: Noé
 slug: porque-un-concierto-actual-es-una-experiencia-inmersiva
+image: assets/images/1000080871-1779777592021.png
 draft: true
 ---
 
@@ -42,4 +43,4 @@ Uniendo la magia del teatro, con las nuevas tecnologías audiovisuales y de espe
 
 Con todo ello, recuerda valorar que el concierto no es su calidad musical, sino todo lo que hay detrás. 
 
-Y en este caso ¿irías a un concierto de un artista que ni fú ni fá, a cambio de vivir la experiencia? 
+Y en este caso ¿irías a un concierto de un artista que ni fú ni fá, a cambio de vivir la experiencia?
