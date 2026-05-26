@@ -9,7 +9,7 @@ image: assets/images/1000080871-1779777592021.png
 draft: true
 ---
 
-Los **conciertos** de hoy en día, con artistas como *Bad Bunny, Rosalía*, generan una masificación que sale fuera del rango que tenían planteados.
+Los **conciertos** de hoy en día, con artistas como *Bad Bunny, Rosalía, Sabrina Carpenter, Taylor Swift*, generan una masificación que sale fuera del rango que tenían planteados.
 
 Pero, si nos ponemos a pensar, algunos de ellos **ni siquiera cantan *a capella* **, o usando patrones de melodías agradables, sino que requieren de un *Auto-Tune* al límite para sus canciones. 
 
