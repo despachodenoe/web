@@ -14,7 +14,7 @@ Pero, si nos ponemos a pensar, algunos de ellos **ni siquiera cantan *a capella*
 
 Entonces, ¿Por qué llenan estadios, y generan tanta masificación?. Pues tiene su historia y motivo claro: la **experiencia**.
 
-## La mercadotecnia del concierto, papel fundamental en el concierto.
+## La mercadotecnia del concierto, un complemento convertido en esencial.
 
 La **mercadotecnia** juega un rol importante en los conciertos, debido a que los productos en venta suelen ser coleccionados o revendidos, sea prendas, vasos e incluso productos interactivos desechables.
 
