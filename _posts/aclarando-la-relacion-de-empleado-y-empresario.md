@@ -5,7 +5,8 @@ date: 2026-05-27
 excerpt: Desde tiempos de la revolución industrial, los trabajadores y propietarios de empresa, rara vez se han puesto de acuerdo en la forma de trabajo. Pero creo que ya es hora de aclarar ideas y empatizar con ambos supuestos.
 author: Noé
 slug: aclarando-la-relacion-de-empleado-y-empresario
-draft: true
+image: assets/images/1000081011-1779843956493.png
+draft: false
 ---
 
 Desde tiempos de la Revolución Industrial, siempre ha habido una **disputa** abierta entre empresarios y trabajadores. Sea por mejoras en las condiciones laborales, seguridad o salario. 
