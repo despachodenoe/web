@@ -30,7 +30,7 @@ Es cierto que los mecanismos jurídicos y laborales, han mejorado la capacidad d
 
 ## Empresario o trabajador ¿Cual es el que gana en esta guerra?
 
-Siendo sinceros, realmente ganan todos. 
+Siendo sinceros, si las cosas las hacen bien y ponen su apoyo en cada rol, realmente **ganan todos**. 
 
 Por un lado el trabajador obtiene un puesto con unas funciones concretas, un sueldo fijo y periódico, un horario asumible e incluso ajustable a su vida personal, y todo ello con unas simples entrevistas.
 
