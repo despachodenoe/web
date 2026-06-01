@@ -6,7 +6,7 @@ excerpt: Actualmente hay muchos artistas internacionales, con estilos peculiares
 author: Noé
 slug: porque-un-concierto-actual-es-una-experiencia-inmersiva
 image: assets/images/1000080871-1779777592021.png
-draft: true
+draft: false
 ---
 
 Los **conciertos** de hoy en día, con artistas como *Bad Bunny, Rosalía, Sabrina Carpenter, Taylor Swift*, generan una masificación que sale fuera del rango que tenían planteados.
